@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Name": "btTemplete.Server\\btTemplete.Server.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]
