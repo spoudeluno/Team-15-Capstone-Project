@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:5173",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\..\\bttemplete.client",
+"WorkingDirectory": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\..\\bttemplete.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

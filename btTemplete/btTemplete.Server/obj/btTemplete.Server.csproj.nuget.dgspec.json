@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj": {}
+    "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj": {
+    "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
+        "projectUniqueName": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
         "projectName": "btTemplete.Server",
-        "projectPath": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
-        "packagesPath": "C:\\Users\\nebel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\obj\\",
+        "projectPath": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
+        "packagesPath": "C:\\Users\\himatrek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nebel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\himatrek\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
