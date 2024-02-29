@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="invoice">
+        <div class="invoice-info">
+            <div>
+                <label for="invoiceNo">Invoice No:</label>
+                <div id="invoiceNo">{{invoice.invoiceNo}}</div>
+            </div>
+            <div>
+                <label for="invoiceDate">Invoice Date:</label>
+                <div id="invoiceDate">{{invoice.invoiceDate}}</div>
+            </div>
+            <div>
+                <label for="customerId">Customer ID:</label>
+                <div id="customerId">{{invoice.customerId}}</div>
+            </div>
+            <div>
+                <label for="customerName">Customer Name:</label>
+                <div id="customerName">{{invoice.customerName}}</div>
+            </div>
+            <div>
+                <label for="PhoneNo">Phone No:</label>
+                <div id="PhoneNo">{{invoice.PhoneNo}}</div>
+            </div>
+            <div>
+                <label for="address">Address:</label>
+                <div id="address">{{invoice.address}}</div>
+            </div>
+        </div>
+        <div class="invoice-items">
+            <h2>Items</h2>
+            <div class="item">
+                <div>Description</div>
+                <div>Quantity</div>
+                <div>Price</div>
+                <div>Total</div>
+            </div>
+            {{#each invoice.items}}
+            <div class="item">
+                <div>{{this.description}}</div>
+                <div>{{this.quantity}}</div>
+                <div>{{this.price}}</div>
+                <div>{{this.total}}</div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="invoice-total">
+            <div>
+                <label for="totalAmount">Total Amount:</label>
+                <div id="totalAmount">{{invoice.totalAmount}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
