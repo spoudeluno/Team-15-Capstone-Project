@@ -7,18 +7,18 @@ To get started with btTemplate, clone the repository and install the necessary d
 
 For the client, run the following commands:
 ```sh
-cd btTemplete/bttemplete.client
+cd btTemplate/btTemplate.client
 npm install
 npm run dev
 ```
 For the server, run the following commands:
 ```sh
-cd btTemplete/btTemplete.Server
+cd btTemplate/btTemplate.Server
 dotnet restore
 dotnet run
 ```
 ## Usage
-- To use btTemplete, open your browser to https://localhost:5173/
+- To use btTemplate, open your browser to https://localhost:5173/
 
 - To stop the application, use `Ctrl+C` in the terminal.
 

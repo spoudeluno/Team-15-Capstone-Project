@@ -1,0 +1,6 @@
+@btTemplate.Server_HostAddress = http://localhost:5080
+
+GET {{btTemplate.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
