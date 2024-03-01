@@ -1,49 +1,69 @@
-import { useEffect, useState } from 'react';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
-    const [forecasts, setForecasts] = useState();
-
-    useEffect(() => {
-        populateWeatherData();
-    }, []);
-
-    const contents = forecasts === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+    const [formValues, setFormValues] = useState({
+        proposalId: '',
+        companyName: '',
+        address: '',
+        amount: '',
+        description: '',
+        status: ''
+    });
+    const handleChange = (e) => {
+        setFormValues({ ...formValues, [e.target.id]: e.target.value });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formValues);
+        //fetch('/ConfigureProposal', {
+        //    method: 'POST',
+        //    body: JSON.stringify({
+        //        formValues
+        //    }),
+        //    headers: {
+        //        'Content-type': 'application/json; charset=UTF-8',
+        //   },
+        //})
+    };
 
     return (
         <div>
-            <h1 id="tabelLabel">Weather forecast</h1>
-            <p>This component demonstrates fetching data from the server.</p>
-            {contents}
+            <h1 id="tabelLabel">Proposal Information</h1>
+            <p>This component demonstrates filling a proposal template with inputed details.</p>
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                    <div className="input-group">
+                        <label htmlFor="name">Proposal ID:</label>
+                        <input type="text" id="proposalId" value={formValues.proposalId || ""} onChange={handleChange} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Company Name:</label>
+                        <input type="text" id="companyName" value={formValues.companyName || ""} onChange={handleChange} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Address:</label>
+                        <input type="text" id="address" value={formValues.address || ""} onChange={handleChange} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Amount:</label>
+                        <input type="text" id="amount" value={formValues.amount || ""} onChange={handleChange} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Proposal Description:</label>
+                        <input type="text" id="description" value={formValues.description || ""} onChange={handleChange} />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="email">Status:</label>
+                        <input type="text" id="status" value={formValues.status || ""} onChange={handleChange} />
+                    </div>
+                    <button type="submit" className="submit-btn">
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     );
-    
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
-        const data = await response.json();
-        setForecasts(data);
-    }
 }
 
 export default App;
