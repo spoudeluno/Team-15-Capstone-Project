@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "/nm1lS1i3ur465VTvVThKkr2/4/VMfs+9kmC5cYjGog=",
+  "Hash": "R4fEU1Ckl8ULx9rf1s9IqS73rDmduWhJ+nIonUvewcg=",
   "Source": "btTemplete.Server",
   "BasePath": "_content/btTemplete.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\bttemplete.client\\bttemplete.client.esproj",
+      "Identity": "C:\\Users\\Max\\repos\\Team-15-Capstone-Project\\Team-15-Capstone-Project\\btTemplete\\bttemplete.client\\bttemplete.client.esproj",
       "Version": 2,
       "Source": "bttemplete.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

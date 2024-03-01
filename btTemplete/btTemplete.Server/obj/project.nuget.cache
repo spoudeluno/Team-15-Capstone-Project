@@ -1,16 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "R+iOtWHNwHQro3SPR1pFZPXe/TmlLD22Bu9LcNnRsbzyMiW1wUD5sD09RQHcDSG0tmKJ9+3Y++3+ucLczk2CTg==",
+  "dgSpecHash": "e6a+ipDPxqwdbRCqSDJoPZvPc1lUbjc57IZh7hwcqtM/oYLYIA37NS+pXFdmmIVKrOqS4SOavb+8KU0UhmiYiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nebel\\Documents\\ProgrammingAssignments\\Capstone\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
+  "projectFilePath": "C:\\Users\\Max\\repos\\Team-15-Capstone-Project\\Team-15-Capstone-Project\\btTemplete\\btTemplete.Server\\btTemplete.Server.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nebel\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.2\\microsoft.aspnetcore.spaproxy.8.0.2.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "C:\\Users\\nebel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "C:\\Users\\Max\\.nuget\\packages\\handlebars.net\\2.1.4\\handlebars.net.2.1.4.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.2\\microsoft.aspnetcore.spaproxy.8.0.2.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Max\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
   ],
   "logs": []
 }
