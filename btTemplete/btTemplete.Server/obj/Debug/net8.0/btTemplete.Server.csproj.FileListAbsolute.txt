@@ -107,3 +107,4 @@ C:\Users\Max\repos\Team-15-Capstone-Project\Team-15-Capstone-Project\btTemplete\
 C:\Users\Max\repos\Team-15-Capstone-Project\Team-15-Capstone-Project\btTemplete\btTemplete.Server\obj\Debug\net8.0\btTemplete.Server.genruntimeconfig.cache
 C:\Users\Max\repos\Team-15-Capstone-Project\Team-15-Capstone-Project\btTemplete\btTemplete.Server\obj\Debug\net8.0\ref\btTemplete.Server.dll
 C:\Users\Max\repos\Team-15-Capstone-Project\Team-15-Capstone-Project\btTemplete\btTemplete.Server\bin\Debug\net8.0\Handlebars.dll
+C:\Users\nebel\Documents\ProgrammingAssignments\Capstone\Team-15-Capstone-Project\btTemplete\btTemplete.Server\bin\Debug\net8.0\Handlebars.dll

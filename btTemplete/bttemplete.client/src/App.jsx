@@ -1,31 +1,42 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+    const [showPopup, setShowPopup] = useState(false);
+    const [generatedProp, setGeneratedProp] = useState();
     const [formValues, setFormValues] = useState({
-        proposalId: '',
+        proposalID: '',
         companyName: '',
         address: '',
         amount: '',
         description: '',
         status: ''
     });
+
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.id]: e.target.value });
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formValues);
-        //fetch('/ConfigureProposal', {
-        //    method: 'POST',
-        //    body: JSON.stringify({
-        //        formValues
-        //    }),
-        //    headers: {
-        //        'Content-type': 'application/json; charset=UTF-8',
-        //   },
-        //})
+        console.log(JSON.stringify(formValues));
+        getProposal().then((response) => setGeneratedProp(response));
+        setShowPopup(true);
     };
+
+    async function getProposal() {
+        const result = await fetch('http://localhost:5080/ConfigureProposal', {
+            method: 'POST',
+            body: JSON.stringify(formValues),
+            headers: {
+                'accept': 'text/plain',
+                'Content-type': 'application/json'
+            }
+        });
+
+        const proposalHtml = await result.text()
+        console.log(proposalHtml)
+        return proposalHtml;
+    }
 
     return (
         <div>
@@ -35,7 +46,7 @@ function App() {
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <label htmlFor="name">Proposal ID:</label>
-                        <input type="text" id="proposalId" value={formValues.proposalId || ""} onChange={handleChange} />
+                        <input type="text" id="proposalID" value={formValues.proposalID || ""} onChange={handleChange} />
                     </div>
                     <div className="input-group">
                         <label htmlFor="email">Company Name:</label>
@@ -61,6 +72,9 @@ function App() {
                         Submit
                     </button>
                 </form>
+            </div>
+            <div style={{ height: 20 + 'px' }} >
+                {showPopup == true && <div dangerouslySetInnerHTML={{ __html: generatedProp }} />}
             </div>
         </div>
     );

@@ -22,6 +22,7 @@ namespace btTemplete.Server.Controllers
         [Route("/ConfigureProposal")]
         public string ConfigureProposal(Proposal proposal)
         {
+            Console.WriteLine("Proposal: " + proposal);
             if (proposal == null) 
             {
                 return "Bad request, proposal is null.";
@@ -33,7 +34,7 @@ namespace btTemplete.Server.Controllers
                 var proposalTemplate = Handlebars.Compile(proposalString);
 
                 var result = proposalTemplate(proposal);
-
+                Console.WriteLine("RESULT: " + result);
                 return result;
             }
             catch (Exception ex) 

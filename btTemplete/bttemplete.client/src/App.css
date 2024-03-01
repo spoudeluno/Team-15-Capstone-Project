@@ -109,3 +109,49 @@ input:focus {
 .hide {
     display: none;
 }
+
+.proposal {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #202020;
+    h1{
+          font-size: 24px;
+          text-align: left;
+          text-decoration: underline;
+          padding-left: 16px;
+      }
+}
+
+.proposal-info {
+    width: 90%;
+    margin: auto;
+}
+
+.item {
+    display: block;
+    text-align: left;
+    color: #FFF;
+    margin-bottom: 24px;
+    div {
+            margin-left: 4px;
+            margin-top: 1px;
+            width: fit-content;
+            float: right;
+        }
+}
+
+.item label {
+    float: left;
+    font-size: 18px;
+}
+
+.proposal p {
+    line-height: 1.6;
+}
+
+.proposal p strong {
+    color: #333;
+}
