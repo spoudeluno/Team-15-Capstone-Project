@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/btTemplate.Server.csproj": {}
+    "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\btTemplate.Server.csproj": {}
   },
   "projects": {
-    "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/btTemplate.Server.csproj": {
+    "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\btTemplate.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/btTemplate.Server.csproj",
+        "projectUniqueName": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\btTemplate.Server.csproj",
         "projectName": "btTemplate.Server",
-        "projectPath": "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/btTemplate.Server.csproj",
-        "packagesPath": "/Users/dreamxia/.nuget/packages/",
-        "outputPath": "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/obj/",
+        "projectPath": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\btTemplate.Server.csproj",
+        "packagesPath": "C:\\Users\\himatrek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dreamxia/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\himatrek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +53,10 @@
               "target": "Package",
               "version": "[8.*-*, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -75,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

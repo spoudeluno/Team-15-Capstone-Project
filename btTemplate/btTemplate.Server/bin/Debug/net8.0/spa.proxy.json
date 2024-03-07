@@ -1,9 +1,9 @@
 {
 "SpaProxyServer": {
-"ServerUrl": "https://localhost:5173",
+"ServerUrl": "https://localhost:8080",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.Server/../btTemplate.client",
+"WorkingDirectory": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.Server\\..\\btTemplate.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

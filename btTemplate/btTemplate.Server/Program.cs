@@ -1,5 +1,9 @@
+using btTemplate.Server.ProposalCompleteModel;
+using HandlebarsDotNet;
+using HandlebarsDotNet.Compiler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +24,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    HandlebarsHelpers.RegisterIfEqualsHelper();
+    HandlebarsHelpers.RegisterGetDateHelper();
+    HandlebarsHelpers.RegisterifContains();
 }
 
 app.UseCors(builder => builder
@@ -35,5 +42,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-
 app.Run();

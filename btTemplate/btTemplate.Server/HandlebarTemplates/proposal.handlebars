@@ -1,42 +1,108 @@
 <!--<!DOCTYPE html>
 <html>
 <body>-->
+<div class="header">
+    <img class="logo" src="{{builderInfo.logo}}">
+    {{#if builderAddress.fields}}
+        {{#each builderAddress.fields}}
+            {{#ifEquals title 'Street Address'}}
+            <h2 class="builderStreetAddress">{{value}}</h2>
+            {{/ifEquals}}
+            {{#ifEquals title 'City'}}
+            <h2 class="builderCity">{{value}}</h2>
+            {{/ifEquals}}
+            {{#ifEquals title 'State'}}
+            <h2 class="builderState">{{value}}</h2>
+            {{/ifEquals}}
+            {{#ifEquals title 'Zip Code'}}
+            <h2 class="builderZipcode">{{value}}</h2>
+            {{/ifEquals}}
+        {{/each}}
+    {{/if}}
+</div>
 <div class="proposal">
-    <h1>Proposal</h1>
     <div class="proposal-info">
         <br />
-        <div class="item">
-            <label for="proposalId">Proposal ID:</label>
-            <div id="proposalId">{{proposalId}}</div>
+        {{#if formatOptions.showOwnerContactInfo}}
+        <div class="owner-info">
+            <label id="ownerName">{{jobInfo.ownerName}}</label>
+            <label id="phoneNumber">{{jobInfo.ownerPhone}}</label>
+            <label id="ownerEmail">{{jobInfo.ownerEmail}}</label>
+            <label id="ownerCell">{{jobInfo.ownerCell}}</label>
         </div>
+        {{/if}}
         <br />
-        <div class="item">
-            <label for="companyName">Company Name:</label>
-            <div id="companyName">{{companyName}}</div>
+        {{#if formatOptions.showAddress}}
+        <div class="job-addesss">
+            {{#if jobAddress.fields}}
+                {{#each jobAddress.fields}}
+                {{#ifEquals title 'Street Address'}}
+                <p class="jobStreetAddress">{{value}}</p>
+                {{/ifEquals}}
+                {{#ifEquals title 'City'}}
+                <p class="jobCity">{{value}}</p>
+                {{/ifEquals}}
+                {{#ifEquals title 'State'}}
+                <p class="jobState">{{value}}</p>
+                {{/ifEquals}}
+                {{#ifEquals title 'Zip Code'}}
+                <p class="jobZipcode">{{value}}</p>
+                {{/ifEquals}}
+                {{/each}}
+            {{/if}}
         </div>
+        {{/if}}
+
         <br />
-        <div class="item">
-            <label for="address">Address:</label>
-            <div id="address">{{address}}</div>
-        </div>
+        {{#if showContactAddress}}
+            <div class="job-addesss">
+                {{#if contactAddress.fields}}
+                    {{#each contactAddress.fields}}
+                        {{#ifEquals title 'Street Address'}}
+                        <p class="jobStreetAddress">{{value}}</p>
+                        {{/ifEquals}}
+                        
+                    {{#ifEquals title 'City'}}
+                        <p class="jobCity">{{value}}</p>
+                        {{/ifEquals}}
+                        
+                        {{#ifEquals title 'State'}}
+                        <p class="jobState">{{value}}</p>
+                        {{/ifEquals}}
+                        
+                        {{#ifEquals title 'Zip Code'}}
+                        <p class="jobZipcode">{{value}}</p>
+                        {{/ifEquals}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        {{/if}} 
         <br />
-        <div class="item">
-            <label for="amount">Amount:</label>
-            <div id="amount">{{amount}}</div>
+        <div>
+            <table>
+                <tr>
+                    {{#with columnsToDisplay as | display |}}
+                    {{#with display.options as | optionsArray |}}
+                    {{#each optionsArray}}
+                    {{#each options}}
+                    {{#ifContains display.value id}}
+                        <th id="{{name}}">{{name}} </th>
+                    {{/ifContains}}
+                    {{/each}}
+                    {{/each}}
+                    {{/with}}
+                    {{/with}}
+                </tr>
+
+
+            </table>
+
         </div>
-        <br />
-        <div class="item">
-            <label for="description">Proposal Description:</label>
-            <div id="description">{{description}}</div>
-        </div>
-        <br />
-        <div class="item">
-            <label for="status">Status:</label>
-            <div id="status">{{status}}</div>
-        </div>
+
     </div>
 </div>
 
-<div style='height: 40px'></div>
-<!--</body>
-</html>-->
+    <div style='height: 40px'></div>
+    <!--</body>
+    </html>-->
+    

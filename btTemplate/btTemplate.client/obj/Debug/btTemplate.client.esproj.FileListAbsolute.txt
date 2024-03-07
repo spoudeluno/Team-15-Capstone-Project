@@ -2,3 +2,4 @@ C:/Users/himatrek/Desktop/Capstone/Team-15-Capstone-Project/btTemplate/btTemplat
 C:/Users/nebel/Documents/ProgrammingAssignments/Capstone/Team-15-Capstone-Project/btTemplate/btTemplate.client/obj/Debug/btTemplate.client.esproj.CoreCompileInputs.cache
 C:/Users/Max/repos/Team-15-Capstone-Project/Team-15-Capstone-Project/btTemplate/btTemplate.client/obj/Debug/btTemplate.client.esproj.CoreCompileInputs.cache
 /Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.client/obj/Debug/btTemplate.client.esproj.CoreCompileInputs.cache
+C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.client\obj\Debug\btTemplate.client.esproj.CoreCompileInputs.cache

@@ -1,20 +1,20 @@
 {
   "Version": 1,
-  "Hash": "F9jy8D2821fwHfPkSPN3PWSiM4VfmPQ///ohXBlDSeY=",
+  "Hash": "41KiO8AhJdTGBBWuFqNlbZ2zEFm/u+cCiFUPI9aRnmk=",
   "Source": "btTemplate.Server",
   "BasePath": "_content/btTemplate.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "/Users/dreamxia/git/Team-15-Capstone-Project/btTemplate/btTemplate.client/btTemplate.client.esproj",
+      "Identity": "C:\\Users\\himatrek\\Desktop\\Capstone\\Team-15-Capstone-Project\\btTemplate\\btTemplate.client\\btTemplate.client.esproj",
       "Version": 2,
       "Source": "btTemplate.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
