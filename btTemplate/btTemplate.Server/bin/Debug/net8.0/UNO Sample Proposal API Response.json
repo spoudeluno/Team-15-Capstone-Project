@@ -1,634 +1,634 @@
-  {
-    "builderId": 86752,
-    "userId": 18031537,
-    "jobId": 33433753,
-    "id": 8950715,
-    "title": "New home project title",
-    "approvalDeadline": null,
-    "introductionText": "We are glad you chose ABC builders for this project! Here is the initial estimate for the effort.",
-    "closingText": "Thank you again for choosing ABC builders and we look forward to starting the project.",
-    "columnsToDisplay": {
-      "type": 1,
-      "value": [
-        1,
-        2,
-        3,
-        8,
-        9,
-        10,
-        11
-      ],
-      "options": [
-        {
-          "name": null,
-          "options": [
+{
+        "builderId": 86752,
+        "userId": 18031537,
+        "jobId": 33433753,
+        "id": 8950715,
+        "title": "New home project title",
+        "approvalDeadline": null,
+        "introductionText": "We are glad you chose ABC builders for this project! Here is the initial estimate for the effort.",
+        "closingText": "Thank you again for choosing ABC builders and we look forward to starting the project.",
+        "columnsToDisplay": {
+            "type": 1,
+            "value": [
+                1,
+                2,
+                3,
+                8,
+                9,
+                10,
+                11
+            ],
+            "options": [
+                {
+                    "name": null,
+                    "options": [
+                        {
+                            "key": null,
+                            "id": 16,
+                            "name": "Item Title",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 1,
+                            "name": "Cost Code",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 2,
+                            "name": "Description",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 17,
+                            "name": "Cost Type",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 3,
+                            "name": "Qty / Unit",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 4,
+                            "name": "Unit Cost",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 5,
+                            "name": "Builder Total Cost",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 6,
+                            "name": "Markup",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 7,
+                            "name": "Markup Amount",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 8,
+                            "name": "Unit Price",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 9,
+                            "name": "Price",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 10,
+                            "name": "Total Price",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 11,
+                            "name": "Category Price",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 13,
+                            "name": "Total Cost",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        },
+                        {
+                            "key": null,
+                            "id": 14,
+                            "name": "Total Markup",
+                            "secondaryName": null,
+                            "selected": false,
+                            "extraData": null,
+                            "disabled": false
+                        }
+                    ],
+                    "type": 0
+                }
+            ]
+        },
+        "jobInfo": {
+            "id": 33433753,
+            "name": "UNO Design Building",
+            "entityHasContact": true,
+            "builderId": 0,
+            "jobStatus": 0,
+            "ownerName": "UNO Team",
+            "ownerEmail": "",
+            "ownerPhone": "(402) 554-2800",
+            "ownerCell": ""
+        },
+        "builderInfo": {
+            "companyName": "Andy Bayer Demo",
+            "website": "",
+            "phone": "402-555-1234",
+            "fax": "",
+            "timeZone": null,
+            "timeZoneList": null,
+            "country": "US",
+            "address": null,
+            "logo": "https://buildertrend.net/api/files/brandingLogo?id=26778e7a-209d-4aec-be82-50545adc80d0&imageType=0&rowVersion=23837259438",
+            "additionalFields": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "builderAddress": {
+            "fields": [
+                {
+                    "title": "Street Address",
+                    "value": "11818 I St",
+                    "order": 1,
+                    "addressFieldType": 1
+                },
+                {
+                    "title": "City",
+                    "value": "Omaha",
+                    "order": 3,
+                    "addressFieldType": 3
+                },
+                {
+                    "title": "State",
+                    "value": "NE",
+                    "order": 4,
+                    "addressFieldType": 4
+                },
+                {
+                    "title": "Zip Code",
+                    "value": "68137-1237",
+                    "order": 5,
+                    "addressFieldType": 5
+                }
+            ],
+            "globalCountry": "US"
+        },
+        "jobAddress": {
+            "fields": [
+                {
+                    "title": "Street Address",
+                    "value": "6001 Dodge St",
+                    "order": 1,
+                    "addressFieldType": 1
+                },
+                {
+                    "title": "City",
+                    "value": "Omaha",
+                    "order": 3,
+                    "addressFieldType": 3
+                },
+                {
+                    "title": "State",
+                    "value": "NE",
+                    "order": 4,
+                    "addressFieldType": 4
+                },
+                {
+                    "title": "Zip Code",
+                    "value": "68182",
+                    "order": 5,
+                    "addressFieldType": 5
+                }
+            ],
+            "globalCountry": "US"
+        },
+        "contactAddress": {
+            "fields": [
+                {
+                    "title": "Street Address",
+                    "value": "6001 Dodge St",
+                    "order": 1,
+                    "addressFieldType": 1
+                },
+                {
+                    "title": "City",
+                    "value": "Omaha",
+                    "order": 3,
+                    "addressFieldType": 3
+                },
+                {
+                    "title": "State",
+                    "value": "NE",
+                    "order": 4,
+                    "addressFieldType": 4
+                },
+                {
+                    "title": "Zip Code",
+                    "value": "68182",
+                    "order": 5,
+                    "addressFieldType": 5
+                }
+            ],
+            "globalCountry": "US"
+        },
+        "showContactAddress": false,
+        "displayToOwner": true,
+        "costCodes": [
             {
-              "key": null,
-              "id": 16,
-              "name": "Item Title",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 1,
-              "name": "Cost Code",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 2,
-              "name": "Description",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 17,
-              "name": "Cost Type",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 3,
-              "name": "Qty / Unit",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 4,
-              "name": "Unit Cost",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 5,
-              "name": "Builder Total Cost",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 6,
-              "name": "Markup",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 7,
-              "name": "Markup Amount",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 8,
-              "name": "Unit Price",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 9,
-              "name": "Price",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 10,
-              "name": "Total Price",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 11,
-              "name": "Category Price",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 13,
-              "name": "Total Cost",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
-            },
-            {
-              "key": null,
-              "id": 14,
-              "name": "Total Markup",
-              "secondaryName": null,
-              "selected": false,
-              "extraData": null,
-              "disabled": false
+                "id": 12910132,
+                "name": "Buildertrend Flat Rate",
+                "isFlatRateCostCode": true,
+                "isCustomerVariance": false,
+                "costCategoryId": 1639231
             }
-          ],
-          "type": 0
-        }
-      ]
-    },
-    "jobInfo": {
-      "id": 33433753,
-      "name": "UNO Design Building",
-      "entityHasContact": true,
-      "builderId": 0,
-      "jobStatus": 0,
-      "ownerName": "UNO Team",
-      "ownerEmail": "",
-      "ownerPhone": "(402) 554-2800",
-      "ownerCell": ""
-    },
-    "builderInfo": {
-      "companyName": "Andy Bayer Demo",
-      "website": "",
-      "phone": "402-555-1234",
-      "fax": "",
-      "timeZone": null,
-      "timeZoneList": null,
-      "country": "US",
-      "address": null,
-      "logo": "https://buildertrend.net/api/files/brandingLogo?id=26778e7a-209d-4aec-be82-50545adc80d0&imageType=0&rowVersion=23837259438",
-      "additionalFields": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "builderAddress": {
-      "fields": [
-        {
-          "title": "Street Address",
-          "value": "11818 I St",
-          "order": 1,
-          "addressFieldType": 1
+        ],
+		"lineItems": [
+			{
+				"id": 167956713,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Permits",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					7
+				],
+				"unitCost": 1500.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 1500.0000,
+				"markupType": 1,
+				"markupPercent": 0.00,
+				"markupPerUnit": 0.0000,
+				"markupAmount": 0.0000,
+				"unitPrice": 1500.0,
+				"ownerPrice": 1500.0000,
+				"amountInvoiced": 0.0,
+				"description": "All build permits with county.",
+				"dateAdded": "2024-02-21T12:23:53.867",
+				"worksheetDisplayOrder": 0,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167956975,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Foundation",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					4
+				],
+				"unitCost": 20000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 20000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 4000.0000,
+				"markupAmount": 4000.0000,
+				"unitPrice": 24000.0,
+				"ownerPrice": 24000.0000,
+				"amountInvoiced": 0.0,
+				"description": "Concrete foundation",
+				"dateAdded": "2024-02-21T12:28:01.937",
+				"worksheetDisplayOrder": 1,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957022,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Framing",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					1,
+					2
+				],
+				"unitCost": 25000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 25000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 5000.0000,
+				"markupAmount": 5000.0000,
+				"unitPrice": 30000.0,
+				"ownerPrice": 30000.0000,
+				"amountInvoiced": 0.0,
+				"description": "Full framing with roof",
+				"dateAdded": "2024-02-21T12:31:03.337",
+				"worksheetDisplayOrder": 2,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957038,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Electrical",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					4
+				],
+				"unitCost": 10000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 10000.0000,
+				"markupType": 1,
+				"markupPercent": 10.00,
+				"markupPerUnit": 1000.0000,
+				"markupAmount": 1000.0000,
+				"unitPrice": 11000.0,
+				"ownerPrice": 11000.0000,
+				"amountInvoiced": 0.0,
+				"description": "",
+				"dateAdded": "2024-02-21T12:32:36.977",
+				"worksheetDisplayOrder": 3,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957098,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Plumbing",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					4
+				],
+				"unitCost": 12000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 12000.0000,
+				"markupType": 1,
+				"markupPercent": 10.00,
+				"markupPerUnit": 1200.0000,
+				"markupAmount": 1200.0000,
+				"unitPrice": 13200.0,
+				"ownerPrice": 13200.0000,
+				"amountInvoiced": 0.0,
+				"description": "Main home, kitchen, 3 baths",
+				"dateAdded": "2024-02-21T12:36:31.563",
+				"worksheetDisplayOrder": 4,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957113,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Bathroom finishings",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					2
+				],
+				"unitCost": 5000.0000,
+				"unit": "",
+				"quantity": 3.0000,
+				"builderCost": 15000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 1000.0000,
+				"markupAmount": 3000.0000,
+				"unitPrice": 6000.0,
+				"ownerPrice": 18000.0000,
+				"amountInvoiced": 0.0,
+				"description": "",
+				"dateAdded": "2024-02-21T12:37:57.797",
+				"worksheetDisplayOrder": 5,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957162,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Flooring",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					2
+				],
+				"unitCost": 4.0000,
+				"unit": "",
+				"quantity": 2500.0000,
+				"builderCost": 10000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 0.8000,
+				"markupAmount": 2000.0000,
+				"unitPrice": 4.8,
+				"ownerPrice": 12000.0000,
+				"amountInvoiced": 0.0,
+				"description": "All flooring",
+				"dateAdded": "2024-02-21T12:39:10.447",
+				"worksheetDisplayOrder": 6,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957217,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Interior finishings",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					1,
+					2
+				],
+				"unitCost": 10000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 10000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 2000.0000,
+				"markupAmount": 2000.0000,
+				"unitPrice": 12000.0,
+				"ownerPrice": 12000.0000,
+				"amountInvoiced": 0.0,
+				"description": "Everything else inside",
+				"dateAdded": "2024-02-21T12:42:23.037",
+				"worksheetDisplayOrder": 8,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 167957275,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 10,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Landscaping",
+				"parentId": null,
+				"relatedItems": [],
+				"costTypes": [
+					1,
+					2
+				],
+				"unitCost": 10000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 10000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 2000.0000,
+				"markupAmount": 2000.0000,
+				"unitPrice": 12000.0,
+				"ownerPrice": 12000.0000,
+				"amountInvoiced": 0.0,
+				"description": "Sod, entry bed, 5 trees",
+				"dateAdded": "2024-02-21T12:43:25.27",
+				"worksheetDisplayOrder": 9,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			},
+			{
+				"id": 49610670,
+				"builderId": 86752,
+				"jobId": 33433753,
+				"lineItemType": 7,
+				"costCodeId": 12910132,
+				"costCodeTitle": "Buildertrend Flat Rate",
+				"costCategoryId": 1639231,
+				"costItemId": null,
+				"itemTitle": "Kitchen",
+				"parentId": 48164994,
+				"relatedItems": [
+					{
+						"id": 48164994,
+						"jobId": null,
+						"type": 11,
+						"title": "Appliances",
+						"status": 0
+					}
+				],
+				"costTypes": [
+					1,
+					2
+				],
+				"unitCost": 50000.0000,
+				"unit": "",
+				"quantity": 1.0000,
+				"builderCost": 50000.0000,
+				"markupType": 1,
+				"markupPercent": 20.00,
+				"markupPerUnit": 10000.0000,
+				"markupAmount": 10000.0000,
+				"unitPrice": 0.0,
+				"ownerPrice": 60000.0000,
+				"amountInvoiced": 0.0,
+				"description": "High end",
+				"dateAdded": "2024-02-21T13:03:14.743",
+				"worksheetDisplayOrder": 10,
+				"taxGroupId": null,
+				"totalWithTax": 0.0
+			}
+		],
+        "formatOptions": {
+            "header": 1,
+            "body": 1,
+            "showOwnerContactInfo": true,
+            "showAddress": true,
+            "showPrintoutInfo": true,
+            "printoutType": 1,
+            "hasSingleSelectCostTypes": true
         },
-        {
-          "title": "City",
-          "value": "Omaha",
-          "order": 3,
-          "addressFieldType": 3
-        },
-        {
-          "title": "State",
-          "value": "NE",
-          "order": 4,
-          "addressFieldType": 4
-        },
-        {
-          "title": "Zip Code",
-          "value": "68137-1237",
-          "order": 5,
-          "addressFieldType": 5
-        }
-      ],
-      "globalCountry": "US"
-    },
-    "jobAddress": {
-      "fields": [
-        {
-          "title": "Street Address",
-          "value": "6001 Dodge St",
-          "order": 1,
-          "addressFieldType": 1
-        },
-        {
-          "title": "City",
-          "value": "Omaha",
-          "order": 3,
-          "addressFieldType": 3
-        },
-        {
-          "title": "State",
-          "value": "NE",
-          "order": 4,
-          "addressFieldType": 4
-        },
-        {
-          "title": "Zip Code",
-          "value": "68182",
-          "order": 5,
-          "addressFieldType": 5
-        }
-      ],
-      "globalCountry": "US"
-    },
-    "contactAddress": {
-      "fields": [
-        {
-          "title": "Street Address",
-          "value": "6001 Dodge St",
-          "order": 1,
-          "addressFieldType": 1
-        },
-        {
-          "title": "City",
-          "value": "Omaha",
-          "order": 3,
-          "addressFieldType": 3
-        },
-        {
-          "title": "State",
-          "value": "NE",
-          "order": 4,
-          "addressFieldType": 4
-        },
-        {
-          "title": "Zip Code",
-          "value": "68182",
-          "order": 5,
-          "addressFieldType": 5
-        }
-      ],
-      "globalCountry": "US"
-    },
-    "showContactAddress": false,
-    "displayToOwner": true,
-    "costCodes": [
-      {
-        "id": 12910132,
-        "name": "Buildertrend Flat Rate",
-        "isFlatRateCostCode": true,
-        "isCustomerVariance": false,
-        "costCategoryId": 1639231
-      }
-    ],
-    "lineItems": [
-      {
-        "id": 167956713,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Permits",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          7
-        ],
-        "unitCost": 1500.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 1500.0000,
-        "markupType": 1,
-        "markupPercent": 0.00,
-        "markupPerUnit": 0.0000,
-        "markupAmount": 0.0000,
-        "unitPrice": 1500.0,
-        "ownerPrice": 1500.0000,
-        "amountInvoiced": 0.0,
-        "description": "All build permits with county.",
-        "dateAdded": "2024-02-21T12:23:53.867",
-        "worksheetDisplayOrder": 0,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167956975,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Foundation",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          4
-        ],
-        "unitCost": 20000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 20000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 4000.0000,
-        "markupAmount": 4000.0000,
-        "unitPrice": 24000.0,
-        "ownerPrice": 24000.0000,
-        "amountInvoiced": 0.0,
-        "description": "Concrete foundation",
-        "dateAdded": "2024-02-21T12:28:01.937",
-        "worksheetDisplayOrder": 1,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957022,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Framing",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          1,
-          2
-        ],
-        "unitCost": 25000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 25000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 5000.0000,
-        "markupAmount": 5000.0000,
-        "unitPrice": 30000.0,
-        "ownerPrice": 30000.0000,
-        "amountInvoiced": 0.0,
-        "description": "Full framing with roof",
-        "dateAdded": "2024-02-21T12:31:03.337",
-        "worksheetDisplayOrder": 2,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957038,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Electrical",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          4
-        ],
-        "unitCost": 10000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 10000.0000,
-        "markupType": 1,
-        "markupPercent": 10.00,
-        "markupPerUnit": 1000.0000,
-        "markupAmount": 1000.0000,
-        "unitPrice": 11000.0,
-        "ownerPrice": 11000.0000,
-        "amountInvoiced": 0.0,
-        "description": "",
-        "dateAdded": "2024-02-21T12:32:36.977",
-        "worksheetDisplayOrder": 3,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957098,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Plumbing",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          4
-        ],
-        "unitCost": 12000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 12000.0000,
-        "markupType": 1,
-        "markupPercent": 10.00,
-        "markupPerUnit": 1200.0000,
-        "markupAmount": 1200.0000,
-        "unitPrice": 13200.0,
-        "ownerPrice": 13200.0000,
-        "amountInvoiced": 0.0,
-        "description": "Main home, kitchen, 3 baths",
-        "dateAdded": "2024-02-21T12:36:31.563",
-        "worksheetDisplayOrder": 4,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957113,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Bathroom finishings",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          2
-        ],
-        "unitCost": 5000.0000,
-        "unit": "",
-        "quantity": 3.0000,
-        "builderCost": 15000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 1000.0000,
-        "markupAmount": 3000.0000,
-        "unitPrice": 6000.0,
-        "ownerPrice": 18000.0000,
-        "amountInvoiced": 0.0,
-        "description": "",
-        "dateAdded": "2024-02-21T12:37:57.797",
-        "worksheetDisplayOrder": 5,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957162,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Flooring",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          2
-        ],
-        "unitCost": 4.0000,
-        "unit": "",
-        "quantity": 2500.0000,
-        "builderCost": 10000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 0.8000,
-        "markupAmount": 2000.0000,
-        "unitPrice": 4.8,
-        "ownerPrice": 12000.0000,
-        "amountInvoiced": 0.0,
-        "description": "All flooring",
-        "dateAdded": "2024-02-21T12:39:10.447",
-        "worksheetDisplayOrder": 6,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957217,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Interior finishings",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          1,
-          2
-        ],
-        "unitCost": 10000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 10000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 2000.0000,
-        "markupAmount": 2000.0000,
-        "unitPrice": 12000.0,
-        "ownerPrice": 12000.0000,
-        "amountInvoiced": 0.0,
-        "description": "Everything else inside",
-        "dateAdded": "2024-02-21T12:42:23.037",
-        "worksheetDisplayOrder": 8,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 167957275,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 10,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Landscaping",
-        "parentId": null,
-        "relatedItems": [],
-        "costTypes": [
-          1,
-          2
-        ],
-        "unitCost": 10000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 10000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 2000.0000,
-        "markupAmount": 2000.0000,
-        "unitPrice": 12000.0,
-        "ownerPrice": 12000.0000,
-        "amountInvoiced": 0.0,
-        "description": "Sod, entry bed, 5 trees",
-        "dateAdded": "2024-02-21T12:43:25.27",
-        "worksheetDisplayOrder": 9,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      },
-      {
-        "id": 49610670,
-        "builderId": 86752,
-        "jobId": 33433753,
-        "lineItemType": 7,
-        "costCodeId": 12910132,
-        "costCodeTitle": "Buildertrend Flat Rate",
-        "costCategoryId": 1639231,
-        "costItemId": null,
-        "itemTitle": "Kitchen",
-        "parentId": 48164994,
-        "relatedItems": [
-          {
-            "id": 48164994,
-            "jobId": null,
-            "type": 11,
-            "title": "Appliances",
-            "status": 0
-          }
-        ],
-        "costTypes": [
-          1,
-          2
-        ],
-        "unitCost": 50000.0000,
-        "unit": "",
-        "quantity": 1.0000,
-        "builderCost": 50000.0000,
-        "markupType": 1,
-        "markupPercent": 20.00,
-        "markupPerUnit": 10000.0000,
-        "markupAmount": 10000.0000,
-        "unitPrice": 0.0,
-        "ownerPrice": 60000.0000,
-        "amountInvoiced": 0.0,
-        "description": "High end",
-        "dateAdded": "2024-02-21T13:03:14.743",
-        "worksheetDisplayOrder": 10,
-        "taxGroupId": null,
-        "totalWithTax": 0.0
-      }
-    ],
-    "formatOptions": {
-      "header": 1,
-      "body": 1,
-      "showOwnerContactInfo": true,
-      "showAddress": true,
-      "showPrintoutInfo": true,
-      "printoutType": 1,
-      "hasSingleSelectCostTypes": false
-    },
-    "disclaimer": "I confirm that my action here represents my electronic signature and is binding."
-  }
+        "disclaimer": "I confirm that my action here represents my electronic signature and is binding.",
+}

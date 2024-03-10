@@ -25,7 +25,7 @@ public static class HandlebarsHelpers
     {
         Handlebars.RegisterHelper("getCurrentDate", (writer, context, parameters) =>
         {
-            var currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+            var currentDate = DateTime.Now.ToString("dd-MM-yyyy");
             writer.Write(currentDate);
         });
     }
