@@ -181,6 +181,5 @@ C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplat
 C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\obj\Debug\net8.0\btTemplate.Server.pdb
 C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\obj\Debug\net8.0\btTemplate.Server.genruntimeconfig.cache
 C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\obj\Debug\net8.0\ref\btTemplate.Server.dll
-C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\bin\Debug\net8.0\UNO Sample Proposal API Response.json
 C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\himatrek\Desktop\Capstone\Team-15-Capstone-Project\btTemplate\btTemplate.Server\bin\Debug\net8.0\.filenesting.json

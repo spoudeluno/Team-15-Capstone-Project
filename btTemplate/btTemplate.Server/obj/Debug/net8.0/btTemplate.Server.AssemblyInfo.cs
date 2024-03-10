@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("btTemplate.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f16cbf4ba3202cc29e99c8d8829f560246fe57d0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73cbb5de4d13004860c002e2a3d5b884225a48ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("btTemplate.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("btTemplate.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
