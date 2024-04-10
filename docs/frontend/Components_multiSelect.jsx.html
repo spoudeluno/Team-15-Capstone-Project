@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/multiSelect.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/multiSelect.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A function that renders a multi-select dropdown with various column options.
+ * @param {Object} onChange - An object with a callback function to be called when a checkbox is clicked.
+ * @returns {JSX.Element} A JSX element representing the multi-select dropdown.
+ */
+export function MultiSelect(onChange) {
+    const columnOptions = [
+        { value: 'id', name: 'Id' },
+        { value: 'builderId', name: 'Builder Id' },
+        { value: 'jobId', name: 'Job Id' },
+        { value: 'lineItemType', name: 'Line Item Type' },
+        { value: 'costCodeId', name: 'Cost Code Id' },
+        { value: 'costCodeTitle', name: 'Cost Code Title' },
+        { value: 'costCategoryId', name: 'Cost Category Id' },
+        { value: 'costItemId', name: 'Cost Item Id' },
+        { value: 'itemTitle', name: 'Item Title' },
+        { value: 'parentId', name: 'Parent Id' },
+        { value: 'relatedItems', name: 'Related Items' },
+        { value: 'costTypes', name: 'Cost Types' },
+        { value: 'unitCost', name: 'Unit Cost' },
+        { value: 'unit', name: 'Unit' },
+        { value: 'quantity', name: 'Quantity' },
+        { value: 'builderCost', name: 'Builder Cost' },
+        { value: 'markupType', name: 'Markup Type' },
+        { value: 'markupPercent', name: 'Markup Percent' },
+        { value: 'markupPerUnit', name: 'Markup Per Unit' },
+        { value: 'markupAmount', name: 'Markup Amount' },
+        { value: 'unitPrice', name: 'Unit Price' },
+        { value: 'ownerPrice', name: 'Owner Price' },
+        { value: 'amountInvoiced', name: 'Amount Invoiced' },
+        { value: 'description', name: 'Description' },
+        { value: 'dateAdded', name: 'Date Added' },
+        { value: 'worksheetDisplayOrder', name: 'Worksheet Display Order' },
+        { value: 'taxGroupId', name: 'Tax Group Id' },
+        { value: 'totalWithTax', name: 'Total With Tax' }
+    ];
+
+    const css = `
+        details {
+            margin: auto;
+            border: 1px solid #999999;
+            border-radius: 5px;
+            display: inline-flex;
+            flex-direction: column;
+            width: 250px;
+            padding: 4px 9px;
+            background-color: #fff;
+        }
+        details summary::marker {
+          display: none;
+          font-size: 0;
+        }
+
+        details summary::-webkit-details-marker {
+          display: none;
+          font-size: 0;
+        }
+
+        details summary::after {
+          content: "\\25BC";
+          display: inline-block;
+          font-size: 0.6rem;
+          height: 1rem;
+          line-height: 1rem;
+          margin-left: 0.5rem;
+          position: relative;
+          transition: transform 0.25s;
+        }
+
+        details[open] summary {
+          margin-bottom: 1rem;
+          border-bottom: 1px solid #999999;
+          border-right: 1px solid #999999;
+          border-left: 1px solid #999999;
+          border-radius: 0 0 5px 5px;
+          padding-bottom: 6px;
+          margin-left: -10.222px;
+          margin-right: -10.222px;
+        }
+
+        details[open] summary::after {
+          top: -0.15rem;
+          transform: rotate(180deg);
+        }
+
+        fieldset {
+          border: 0;
+          padding: 0;
+          width: 268.222px;
+          margin: -9px;
+          margin-bottom: -2px;
+          margin-top: -16.222px;
+          max-height: 250px;
+          overflow-y: scroll;
+        }
+
+        fieldset legend {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        ul li {
+          display: flex;
+          border-radius: 3px;
+          margin: 0;
+          padding: 8px;
+        }
+
+        ul li:hover {
+          background: #eee;
+        }
+
+        ul li label {
+          float: left;
+          padding-left: 24px;
+          display: inline-block;
+          width: 70%;
+        }
+
+        .pointer {
+            cursor: pointer;
+
+            > label
+            {
+                pointer-events: none;
+            }
+        }
+    `;
+    /**
+     * A function that toggles the checked state of a checkbox with a given value.
+     * @param {string} value - The value of the checkbox to be toggled.
+     */
+    function check(value) {
+        const checkbox = document.getElementById(value);
+        console.log(checkbox.checked);
+        if (checkbox.checked) {
+            checkbox.checked = false;
+        } else {
+            checkbox.checked = true;
+        }
+        onChange.onChange();
+    }
+
+    return (
+        &lt;div className="checkboxCont">
+            &lt;style>{css}&lt;/style>
+            &lt;details className="pointer">
+                &lt;summary>Select columns to be displayed.&lt;/summary>
+                    &lt;fieldset>
+                        &lt;ul>
+                        {columnOptions.map(option => (
+                            &lt;li key={option.value} onClick={() => check(option.value)} className="pointer">
+                                    &lt;label>{option.name}&lt;/label>
+                                &lt;input type="checkbox" id={option.value} value={option.value} onChange={onChange.onChange}
+                                className="unclickable"/>
+                                &lt;/li>
+                            ))}
+                        &lt;/ul>
+                    &lt;/fieldset>
+            &lt;/details>
+        &lt;/div>
+    );
+}
+
+/**
+ * A function that checks which checkboxes are selected and returns an array of their values.
+ * @returns {Array} An array of the values of the selected checkboxes.
+ */
+export function checkSelected() {
+    let selectedItems = [];
+    const chBoxes =
+        document.querySelectorAll('input[type="checkbox"]');
+
+    chBoxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            selectedItems.push(checkbox.value);
+        }
+    });
+
+    return selectedItems;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#Templates">Templates</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getProposal">getProposal</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 09 2024 21:49:52 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

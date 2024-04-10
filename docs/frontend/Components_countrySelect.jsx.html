@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/countrySelect.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/countrySelect.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
+
+/**
+ * A React component that provides a dropdown selection of countries.
+ *
+ * @param {Object} onChange - An object containing a callback function to be called when the selected country changes.
+ * @param {function(string):void} onChange.onChange - The callback function to be called when the selected country changes.
+ *
+ * @returns {JSX.Element} The rendered CountrySelect component.
+ */
+export function CountrySelect(onChange) {
+    const countryOptions = [
+        { value: 'GB', name: 'England' },
+        { value: 'US', name: 'United States' },
+        { value: 'IN', name: 'India' },
+        { value: 'AU', name: 'Australia' },
+        { value: 'DE', name: 'Germany' },
+        { value: 'DM', name: 'Denmark' },
+        { value: 'FI', name: 'Finland' }
+    ];
+
+    const css = `
+        details {
+            margin: auto;
+            border: 1px solid #999999;
+            border-radius: 5px;
+            display: inline-flex;
+            flex-direction: column;
+            width: 250px;
+            padding: 4px 9px;
+            background-color: #fff;
+        }
+        details summary::marker {
+          display: none;
+          font-size: 0;
+        }
+
+        details summary::-webkit-details-marker {
+          display: none;
+          font-size: 0;
+        }
+
+        details summary::after {
+          content: "\\25BC";
+          display: inline-block;
+          font-size: 0.6rem;
+          height: 1rem;
+          line-height: 1rem;
+          margin-left: 0.5rem;
+          position: relative;
+          transition: transform 0.25s;
+        }
+
+        details[open] summary {
+          margin-bottom: 1rem;
+          border-bottom: 1px solid #999999;
+          border-right: 1px solid #999999;
+          border-left: 1px solid #999999;
+          border-radius: 0 0 5px 5px;
+          padding-bottom: 6px;
+          margin-left: -10.222px;
+          margin-right: -10.222px;
+        }
+
+        details[open] summary::after {
+          top: -0.15rem;
+          transform: rotate(180deg);
+        }
+
+        fieldset {
+          border: 0;
+          padding: 0;
+          width: 268.222px;
+          margin: -9px;
+          margin-bottom: -2px;
+          margin-top: -16.222px;
+          max-height: 250px;
+          overflow-y: scroll;
+        }
+
+        fieldset legend {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        ul li {
+          display: flex;
+          border-radius: 3px;
+          margin: 0;
+          padding: 8px;
+        }
+
+        ul li:hover {
+          background: #eee;
+        }
+
+        ul li label {
+          float: left;
+          padding-left: 24px;
+          display: inline-block;
+          width: 70%;
+        }
+
+        .pointer {
+            cursor: pointer;
+
+            > label
+            {
+                pointer-events: none;
+            }
+        }
+    `;
+    const [selectedCountry, setSelectedCountry] = useState('US'); // Set default value to 'US'
+
+    function handleCountryChange(value) {
+        setSelectedCountry(value);
+        onChange.onChange(value);
+    }
+
+    return (
+        &lt;div className="radioCont">
+            &lt;style>{css}&lt;/style>
+            &lt;details className="pointer">
+                &lt;summary>Local Setting.&lt;/summary>
+                &lt;fieldset>
+                    &lt;ul>
+                        {countryOptions.map(option => (
+                            &lt;li key={option.value}>
+                                &lt;label>
+                                    &lt;input
+                                        type="radio"
+                                        name="country"
+                                        value={option.value}
+                                        onChange={() => handleCountryChange(option.value)}
+                                        checked={option.value === selectedCountry}
+                                    />
+                                    {option.name}
+                                &lt;/label>
+                            &lt;/li>
+                        ))}
+                    &lt;/ul>
+                &lt;/fieldset>
+            &lt;/details>
+        &lt;/div>
+    );
+}
+
+/**
+ * Gets the currently selected country from the CountrySelect component.
+ *
+ * @returns {string} The value of the currently selected country.
+ */
+export function selectedCountry() {
+    return document.querySelector('input[name="country"]:checked').value;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#Templates">Templates</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getProposal">getProposal</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 09 2024 21:49:52 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

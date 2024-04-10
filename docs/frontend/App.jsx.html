@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: App.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: App.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
+import { Templates, getProposal } from './Components/templates';
+import './App.css';
+
+/**
+ * The main application component.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
+
+function App() {
+    const [showPopup, setShowPopup] = useState(false);
+    const [startPage, setStartPage] = useState(true);
+    const [template, setTemplate] = useState(false);
+    const [templateTwo, setTemplateTwo] = useState(false);
+    const [templateID, setTemplateID] = useState(1);
+    const [generatedPropOne, setGeneratedPropOne] = useState();
+    const [generatedPropTwo, setGeneratedPropTwo] = useState();
+    const [generatedPropThree, setGeneratedPropThree] = useState();
+    const columnsToShow = ['id', 'builderId', 'itemTitle', 'quantity'];
+    const [selectedProp, setSelectedProp] = useState();
+
+    //Helpfule URL for setting array values: https://react.dev/learn/updating-arrays-in-state
+    
+    /**
+     * Generates templates by calling the getProposal function with different IDs.
+     */
+    const generateTemplates = () => {
+        const button = document.getElementById('begin');
+        button.style.display = 'none'
+        console.log('working');
+        let id = 1;
+        getProposal(columnsToShow, id, "US").then((response) => setGeneratedPropOne(response));
+        id = 2;
+        getProposal(columnsToShow, id, "US").then((response) => {
+            setGeneratedPropTwo(response);
+        });
+        id = 3;
+        getProposal(columnsToShow, id, "US").then((response) => {
+            setGeneratedPropThree(response);
+        });
+        setShowPopup(true);
+    }
+
+    /**
+     * Selects a template based on the user's choice.
+     *
+     * @param {number} choice - The user's choice of template.
+     */
+    function selectTemplate(choice) {
+        console.log(choice);
+        if (choice == 1) {
+            setTemplateID(1);
+            setSelectedProp(generatedPropOne);
+        } else if (choice == 2) {
+            setTemplateID(2);
+            setSelectedProp(generatedPropTwo);
+        } else if (choice == 3) {
+            setTemplateID(3);
+            setSelectedProp(generatedPropThree);
+        }
+        setStartPage(false);
+        setTemplate(true);
+    }
+
+    return (
+        &lt;div>
+        { startPage &amp;&amp;
+            &lt;div>
+                &lt;h1 id='tabelLabel'>Proposal Information&lt;/h1>
+                &lt;p>Please select a template to get started&lt;/p>
+                &lt;div className='buttonCont'>
+                    &lt;button onClick={generateTemplates} id='begin'>Begin&lt;/button>
+                &lt;/div>
+                &lt;div className='container'>
+                    &lt;button className='template' onClick={() => { selectTemplate(1) }}>
+                        {showPopup &amp;&amp;
+                            &lt;div>
+                                &lt;h2>Template 1&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropOne }}>&lt;/div>
+                            &lt;/div>
+                        }
+                    &lt;/button>
+                    &lt;button className='template' onClick={() => { selectTemplate(2) }}>
+                        {showPopup &amp;&amp;
+                            &lt;div>
+                                &lt;h2>Template 2&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropTwo }}>&lt;/div>
+                            &lt;/div>
+                        }
+                    &lt;/button>
+                    &lt;button className='template' onClick={() => { selectTemplate(3) }}>
+                        {showPopup &amp;&amp;
+                            &lt;div>
+                                &lt;h2>Template 3&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropThree }}>&lt;/div>
+                            &lt;/div>
+                        }
+                    &lt;/button>
+                &lt;/div>
+            &lt;/div>
+        }
+        {template &amp;&amp;
+            &lt;Templates value={selectedProp} id={templateID}>&lt;/Templates>
+        }
+        &lt;/div>
+    );
+}
+
+export default App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#Templates">Templates</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getProposal">getProposal</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 09 2024 21:49:52 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
