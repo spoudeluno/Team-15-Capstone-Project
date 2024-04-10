@@ -1,4 +1,0 @@
-var dir_5a06adaf2f15f798373f51c2e781f2d4 =
-[
-    [ "net8.0", "dir_71c78c58a3638e2ae21413307d0185d7.html", "dir_71c78c58a3638e2ae21413307d0185d7" ]
-];
