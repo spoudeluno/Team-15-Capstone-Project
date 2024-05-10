@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>btTemplate: btTemplate.Server.Controllers.TemplateController Class Reference</title>
+<title>spring24-uno-templates: btTemplate.Server.Controllers.TemplateController Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">btTemplate
+   <div id="projectname">spring24-uno-templates
    </div>
   </td>
  </tr>
@@ -127,11 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac277b966df525700f193211471800cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the TemplateController class.  <br /></td></tr>
 <tr class="separator:ac277b966df525700f193211471800cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4dd277e2f245ef7ecb45cffaf710e82" id="r_af4dd277e2f245ef7ecb45cffaf710e82"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4dd277e2f245ef7ecb45cffaf710e82">ConfigureProposal</a> (<a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_proposal_configuration.html">ProposalConfiguration</a> proposalConfiguration)</td></tr>
-<tr class="memdesc:af4dd277e2f245ef7ecb45cffaf710e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POST request to create a configured proposal.  <br /></td></tr>
+<tr class="memdesc:af4dd277e2f245ef7ecb45cffaf710e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POST request to create a configured proposal. This will be called by the frontend through the route /ConfigureProposal.  <br /></td></tr>
 <tr class="separator:af4dd277e2f245ef7ecb45cffaf710e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a2312ec76dcf5e153a3ec91835fe5c3" id="r_a6a2312ec76dcf5e153a3ec91835fe5c3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a2312ec76dcf5e153a3ec91835fe5c3">getProposal</a> ()</td></tr>
-<tr class="memdesc:a6a2312ec76dcf5e153a3ec91835fe5c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles HTTP GET requests to the /getProposal endpoint. The getProposal method in the TemplateController class reads a Handlebars template and a JSON file, deserializes the JSON into a Proposal object, applies the data from the Proposal object to the template, and returns the resulting string, handling any exceptions that occur during the process.  <br /></td></tr>
-<tr class="separator:a6a2312ec76dcf5e153a3ec91835fe5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The TemplateController class is responsible for handling HTTP requests related to templates. </p>
@@ -178,41 +175,21 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A POST request to create a configured proposal. </p>
+<p>A POST request to create a configured proposal. This will be called by the frontend through the route /ConfigureProposal. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">proposalConfiguration</td><td>The configuration for the proposal.</td></tr>
+    <tr><td class="paramname">proposalConfiguration</td><td>The configuration for the proposal, in the form of a ProposalConfiguration object.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The configured proposal.</dd></dl>
 
-<p class="reference">References <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_proposal_configuration.html#a1a165f5bc6aae24f56f397553202ea50">btTemplate.Server.ProposalCompleteModel.ProposalConfiguration.TemplateID</a>.</p>
-
-</div>
-</div>
-<a id="a6a2312ec76dcf5e153a3ec91835fe5c3" name="a6a2312ec76dcf5e153a3ec91835fe5c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a2312ec76dcf5e153a3ec91835fe5c3">&#9670;&#160;</a></span>getProposal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string btTemplate.Server.Controllers.TemplateController.getProposal </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handles HTTP GET requests to the /getProposal endpoint. The getProposal method in the TemplateController class reads a Handlebars template and a JSON file, deserializes the JSON into a Proposal object, applies the data from the Proposal object to the template, and returns the resulting string, handling any exceptions that occur during the process. </p>
-<dl class="section return"><dt>Returns</dt><dd>A string that represents a proposal, generated by applying data from a Proposal object to a Handlebars template. If an error occurs during the process, returns a string containing the error message and stack trace. </dd></dl>
+<p class="reference">References <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_contact_configuration.html#a919f8c2f95a6de9bba38095e5529b648">btTemplate.Server.ProposalCompleteModel.ContactConfiguration.BuilderAddressToggles</a>, <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_contact_configuration.html#aed52a65d963a90734a5147ecd4bfa0e5">btTemplate.Server.ProposalCompleteModel.ContactConfiguration.ContactAddressToggles</a>, <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_proposal_configuration.html#a7f17a50f77b386d80a6a9e3da4c95a3f">btTemplate.Server.ProposalCompleteModel.ProposalConfiguration.ContactConfiguration</a>, <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_contact_configuration.html#acfdb8b7818b9f340cdba08ede44666a1">btTemplate.Server.ProposalCompleteModel.ContactConfiguration.JobAddressToggles</a>, and <a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_proposal_configuration.html#a1a165f5bc6aae24f56f397553202ea50">btTemplate.Server.ProposalCompleteModel.ProposalConfiguration.TemplateID</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>btTemplate.Server/Controllers/<a class="el" href="_template_controller_8cs.html">TemplateController.cs</a></li>
+<li>btTemplate/btTemplate.Server/Controllers/<a class="el" href="_template_controller_8cs.html">TemplateController.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

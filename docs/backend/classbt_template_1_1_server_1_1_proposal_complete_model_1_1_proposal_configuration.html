@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>btTemplate: btTemplate.Server.ProposalCompleteModel.ProposalConfiguration Class Reference</title>
+<title>spring24-uno-templates: btTemplate.Server.ProposalCompleteModel.ProposalConfiguration Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">btTemplate
+   <div id="projectname">spring24-uno-templates
    </div>
   </td>
  </tr>
@@ -107,17 +107,23 @@ Properties</h2></td></tr>
 <tr class="memdesc:a71b77cfd095b1c552d4f8fd9cb251a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the columns to show in the proposal.  <br /></td></tr>
 <tr class="separator:a71b77cfd095b1c552d4f8fd9cb251a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a165f5bc6aae24f56f397553202ea50" id="r_a1a165f5bc6aae24f56f397553202ea50"><td class="memItemLeft" align="right" valign="top">int?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a165f5bc6aae24f56f397553202ea50">TemplateID</a><code> [get, set]</code></td></tr>
-<tr class="memdesc:a1a165f5bc6aae24f56f397553202ea50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the template used for the proposal.  <br /></td></tr>
+<tr class="memdesc:a1a165f5bc6aae24f56f397553202ea50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the template used for the proposal, a number between 1 and 3.  <br /></td></tr>
 <tr class="separator:a1a165f5bc6aae24f56f397553202ea50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd54ec3572a319c4e7495315fd1a54c3" id="r_acd54ec3572a319c4e7495315fd1a54c3"><td class="memItemLeft" align="right" valign="top">string?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd54ec3572a319c4e7495315fd1a54c3">CountryCode</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:acd54ec3572a319c4e7495315fd1a54c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the country code for the proposal. Default value is "US".  <br /></td></tr>
 <tr class="separator:acd54ec3572a319c4e7495315fd1a54c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f17a50f77b386d80a6a9e3da4c95a3f" id="r_a7f17a50f77b386d80a6a9e3da4c95a3f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_contact_configuration.html">ContactConfiguration</a>?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f17a50f77b386d80a6a9e3da4c95a3f">ContactConfiguration</a><code> [get, set]</code></td></tr>
+<tr class="separator:a7f17a50f77b386d80a6a9e3da4c95a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab13ada1ce2382ba3536ca78ca0c7b748" id="r_ab13ada1ce2382ba3536ca78ca0c7b748"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab13ada1ce2382ba3536ca78ca0c7b748">ShowTotalOwnerPrice</a><code> [get]</code></td></tr>
 <tr class="memdesc:ab13ada1ce2382ba3536ca78ca0c7b748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a value indicating whether to show the total owner price in the proposal.  <br /></td></tr>
 <tr class="separator:ab13ada1ce2382ba3536ca78ca0c7b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef998fe635a0d8afcf8f2877c6b0ead" id="r_a6ef998fe635a0d8afcf8f2877c6b0ead"><td class="memItemLeft" align="right" valign="top">bool?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ef998fe635a0d8afcf8f2877c6b0ead">ShowSignature</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a6ef998fe635a0d8afcf8f2877c6b0ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">A boolean representing whether or not the signature fields are displayed.  <br /></td></tr>
+<tr class="separator:a6ef998fe635a0d8afcf8f2877c6b0ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the configuration for a proposal. </p>
+<p>Objects of this type act as the body of configure proposal requests sent from the frontend to the backend. </p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a id="a71b77cfd095b1c552d4f8fd9cb251a4e" name="a71b77cfd095b1c552d4f8fd9cb251a4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71b77cfd095b1c552d4f8fd9cb251a4e">&#9670;&#160;</a></span>ColumnsToShow</h2>
@@ -143,6 +149,30 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a7f17a50f77b386d80a6a9e3da4c95a3f" name="a7f17a50f77b386d80a6a9e3da4c95a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f17a50f77b386d80a6a9e3da4c95a3f">&#9670;&#160;</a></span>ContactConfiguration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbt_template_1_1_server_1_1_proposal_complete_model_1_1_contact_configuration.html">ContactConfiguration</a>? btTemplate.Server.ProposalCompleteModel.ProposalConfiguration.ContactConfiguration</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="classbt_template_1_1_server_1_1_controllers_1_1_template_controller.html#af4dd277e2f245ef7ecb45cffaf710e82">btTemplate.Server.Controllers.TemplateController.ConfigureProposal()</a>.</p>
+
+</div>
+</div>
 <a id="acd54ec3572a319c4e7495315fd1a54c3" name="acd54ec3572a319c4e7495315fd1a54c3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd54ec3572a319c4e7495315fd1a54c3">&#9670;&#160;</a></span>CountryCode</h2>
 
@@ -164,6 +194,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets or sets the country code for the proposal. Default value is "US". </p>
+
+</div>
+</div>
+<a id="a6ef998fe635a0d8afcf8f2877c6b0ead" name="a6ef998fe635a0d8afcf8f2877c6b0ead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef998fe635a0d8afcf8f2877c6b0ead">&#9670;&#160;</a></span>ShowSignature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool? btTemplate.Server.ProposalCompleteModel.ProposalConfiguration.ShowSignature</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A boolean representing whether or not the signature fields are displayed. </p>
 
 </div>
 </div>
@@ -211,14 +265,14 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets or sets the ID of the template used for the proposal. </p>
+<p>Gets or sets the ID of the template used for the proposal, a number between 1 and 3. </p>
 
 <p class="reference">Referenced by <a class="el" href="classbt_template_1_1_server_1_1_controllers_1_1_template_controller.html#af4dd277e2f245ef7ecb45cffaf710e82">btTemplate.Server.Controllers.TemplateController.ConfigureProposal()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>btTemplate.Server/ProposalCompleteModel/<a class="el" href="_proposal_configuration_8cs.html">ProposalConfiguration.cs</a></li>
+<li>btTemplate/btTemplate.Server/ProposalCompleteModel/<a class="el" href="_proposal_configuration_8cs.html">ProposalConfiguration.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

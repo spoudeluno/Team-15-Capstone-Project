@@ -1,4 +1,4 @@
 var files_dup =
 [
-    [ "btTemplate.Server", "dir_ceddbade91fc78023318c3b15ae36015.html", "dir_ceddbade91fc78023318c3b15ae36015" ]
+    [ "btTemplate", "dir_aed8132178e1077d7dc399c4e499295b.html", "dir_aed8132178e1077d7dc399c4e499295b" ]
 ];

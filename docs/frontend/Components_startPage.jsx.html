@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/startPage.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/startPage.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react';
+import '../App.css';
+import { proposalConfiguration, proposal } from '../DataModels/ProposalConfiguration';
+import getProposal from '../Functions/getProposal';
+import { useNavigate } from 'react-router-dom';
+import { getColumnElements } from '../Functions/multiSelectHelper'
+
+/**
+ * A React component for the start page where users can select a proposal template.
+ * @returns {JSX.Element} A JSX element representing the start page.
+ */
+export default function StartPage() {
+    const [generatedPropOne, setGeneratedPropOne] = useState();
+    const [generatedPropTwo, setGeneratedPropTwo] = useState();
+    const [generatedPropThree, setGeneratedPropThree] = useState();
+    const [generatedPropFour, setGeneratedPropFour] = useState(); 
+    const navigate = useNavigate();
+
+    //Helpfule URL for setting array values: https://react.dev/learn/updating-arrays-in-state
+    
+    /**
+     * Generates templates by calling the getProposal function with different IDs.
+     */
+    function generateTemplates() {
+        proposal.fetchBackCSS = false;
+        const button = document.getElementById('begin');
+        button.style.display = 'none';
+        proposalConfiguration.templateID = 1;
+        getProposal().then((response) => {
+            setGeneratedPropOne(response);
+        });
+        proposalConfiguration.templateID = 2;
+        getProposal().then((response) => {
+            setGeneratedPropTwo(response);
+        });
+        proposalConfiguration.templateID = 3;
+        getProposal().then((response) => {
+            setGeneratedPropThree(response);
+        });
+        proposalConfiguration.templateID = 4; 
+        getProposal().then((response) => { 
+            setGeneratedPropFour(response);
+        });
+        proposal.showProps = true;
+        proposal.columnElements = getColumnElements();
+    }
+
+    useEffect(() => {
+        if (proposal.showProps) {
+            generateTemplates();
+        }
+    }, []);
+
+    /**
+     * Selects a template based on the user's choice.
+     * @param {number} choice - The user's choice of template.
+     */
+    function selectTemplate(choice) {
+        if (choice == 1) {
+            proposalConfiguration.templateID = 1;
+            proposal.html = generatedPropOne;
+        } else if (choice == 2) {
+            proposalConfiguration.templateID = 2;
+            proposal.html = generatedPropTwo;
+        } else if (choice == 3) {
+            proposalConfiguration.templateID = 3;
+            proposal.html = generatedPropThree;
+        } else if (choice == 4) {
+            proposalConfiguration.templateID = 4;
+            proposal.html = generatedPropFour;
+        }
+        navigate('templates');
+    }
+
+    return (
+        &lt;div>
+            &lt;div>
+                &lt;h1 id='tabelLabel'>Create Proposal Template&lt;/h1>
+                &lt;p id='desc'>Please select a template to get started&lt;/p>
+                &lt;div className='buttonCont'>
+                    &lt;button onClick={() => generateTemplates()} id='begin'>Begin&lt;/button>
+                &lt;/div>
+                &lt;div className='container'>
+                    { proposal.showProps &amp;&amp;
+                        &lt;button className='template' onClick={() => { selectTemplate(1) }}>
+                            &lt;div>
+                                &lt;h2 className="noHighlight">Template 1&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropOne }}>&lt;/div>
+                                &lt;div style={{height: 20 + 'px'}} >&lt;/div>
+                            &lt;/div>
+                        &lt;/button>
+                    }
+                    { proposal.showProps &amp;&amp;
+                        &lt;button className='template' onClick={() => { selectTemplate(2) }}>
+                            &lt;div>
+                                &lt;h2 className="noHighlight">Template 2&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropTwo }}>&lt;/div>
+                                &lt;div style={{height: 20 + 'px'}}>&lt;/div>
+                            &lt;/div>
+                        &lt;/button>
+                    }
+                    { proposal.showProps &amp;&amp;
+                        &lt;button className='template' onClick={() => { selectTemplate(3) }}>
+                            &lt;div>
+                                &lt;h2 className="noHighlight">Template 3&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropThree }}>&lt;/div>
+                                &lt;div style={{height: 20 + 'px'}}>&lt;/div>
+                            &lt;/div>
+                        &lt;/button>
+                    }
+                    { proposal.showProps &amp;&amp; // Adding the fourth template button
+                        &lt;button className='template' onClick={() => { selectTemplate(4) }}>
+                            &lt;div>
+                                &lt;h2 className="noHighlight">Template 4&lt;/h2>
+                                &lt;div dangerouslySetInnerHTML={{ __html: generatedPropFour }}>&lt;/div>
+                                &lt;div style={{height: 20 + 'px'}}>&lt;/div>
+                            &lt;/div>
+                        &lt;/button>
+                    }
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    );
+}
+
+/*
+{
+    navigator.template &amp;&amp;
+    &lt;Templates value={selectedProp} id={proposalConfiguration.templateID} goBack={goBack}>&lt;/Templates>
+}
+*/
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Functions/multiSelectHelper.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Functions/multiSelectHelper.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { proposalConfiguration, proposal } from '../DataModels/ProposalConfiguration';
+
+/**
+ * A function that checks which checkboxes are selected and returns an array of their values.
+ * @returns {Array} An array of the values of the selected checkboxes.
+ */
+export function checkSelected() {
+    let selectedItems = [];
+    const chBoxes =
+        document.querySelectorAll('input[name="columnCheckbox"]');
+
+    chBoxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            selectedItems.push(checkbox.value);
+        }
+    });
+
+    if (selectedItems.length == 0) {
+        initializeColumnsToShow();
+    }
+
+    return selectedItems;
+}
+
+/**
+* A Helper function to set columns to show.
+*/
+export function initializeColumnsToShow() {
+    const chBoxes =
+        document.querySelectorAll('input[type="checkbox"]');
+
+    chBoxes.forEach((checkbox) => {
+        for (let value of proposalConfiguration.columnsToShow) {
+            if (checkbox.value == value) {
+                checkbox.checked = true;
+            }
+        }
+    });
+
+    proposalConfiguration.columnsToShow = checkSelected();
+}
+
+/**
+ * A Helper function to checks which which contact information to display.
+ */
+export function initializeCheckboxes() {
+
+    const sign = document.getElementById('showSignature');
+    if (sign) {
+        sign.checked = proposalConfiguration.showSignature;
+    }
+
+    const contactConfigs = document.querySelectorAll('input[name="contactConfig"]');
+    contactConfigs.forEach((input) => {
+        let checked = false;
+        switch (input.id) {
+            case 'showJobAddress':
+                checked = proposalConfiguration.contactConfiguration.showJobAddress;
+                break;
+            case 'showContactAdress':
+                checked = proposalConfiguration.contactConfiguration.showContactAddress;
+                break;
+            case 'showOwnerContact':
+                checked = proposalConfiguration.contactConfiguration.showOwnerContact;
+                break;
+            case 'showBuilderAddress':
+                checked = proposalConfiguration.contactConfiguration.showBuilderAddress;
+                break;
+            case 'showBuilderContact':
+                checked = proposalConfiguration.contactConfiguration.showBuilderContact;
+                break;
+        }
+        input.checked = checked;
+    });
+}
+
+/**
+ * A Helper function to retrive the columns of the proposal.
+ * @returns {Array} An array of columns in the Proposal.
+ */
+export function getColumnElements() {
+    let presentElements = [];
+    const elements = document.getElementsByTagName('th');
+    for (let column of elements) {
+        presentElements.push(column);
+    }
+    return presentElements;
+}
+
+/**
+ * A Helper function to determine the width of the columns in the proposal table.
+ * @returns {Array} An array of width for each columns.
+ */
+export function getColumnWidths() {
+    let widths = [];
+    const inputs = document.querySelectorAll('input[type="range"]');
+    if (inputs.length != 0) {
+        inputs.forEach((input) => {
+            if (input.value == 100 || !input.value) {
+                widths.push(`minmax(40px, 1fr)`);
+            } else {
+                widths.push(input.value + 'px');
+            }
+        });
+    } else if (proposal.columnWidths.length != 0) {
+        return proposal.columnWidths;
+    } else {
+        proposalConfiguration.columnsToShow.forEach(() => {
+            widths.push(`minmax(40px, 1fr)`);
+        })
+    }
+    return widths;
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

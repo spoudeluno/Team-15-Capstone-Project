@@ -1,0 +1,5 @@
+<map id="btTemplate.Server.ProposalCompleteModel.JobAddress" name="btTemplate.Server.ProposalCompleteModel.JobAddress">
+<area shape="rect" id="Node000001" title="A simple class that extends Address, used to differentiate it from the other address types for Handle..." alt="" coords="5,80,189,123"/>
+<area shape="rect" id="Node000002" href="$classbt_template_1_1_server_1_1_proposal_complete_model_1_1_address.html" title="Represents an address." alt="" coords="62,5,132,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,48,100,80,94,80,94,48"/>
+</map>

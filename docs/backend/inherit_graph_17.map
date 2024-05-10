@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,112,40"/>
-<area shape="rect" id="Node000001" href="$classbt_template_1_1_server_1_1_controllers_1_1_template_controller.html" title="The TemplateController class is responsible for handling HTTP requests related to templates." alt="" coords="160,5,355,48"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="127,24,159,24,159,29,127,29"/>
-</map>

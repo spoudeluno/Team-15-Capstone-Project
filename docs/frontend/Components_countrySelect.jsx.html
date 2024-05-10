@@ -26,7 +26,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { useState } from 'react';
+            <pre class="prettyprint source linenums"><code>import { proposalConfiguration } from '../DataModels/ProposalConfiguration';
 
 /**
  * A React component that provides a dropdown selection of countries.
@@ -36,6 +36,7 @@
  *
  * @returns {JSX.Element} The rendered CountrySelect component.
  */
+
 export function CountrySelect(onChange) {
     const countryOptions = [
         { value: 'GB', name: 'England' },
@@ -49,14 +50,20 @@ export function CountrySelect(onChange) {
 
     const css = `
         details {
-            margin: auto;
-            border: 1px solid #999999;
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            border: 1px solid var(--border-color);
             border-radius: 5px;
-            display: inline-flex;
-            flex-direction: column;
-            width: 250px;
-            padding: 4px 9px;
+            width: 80%;
+            padding: 6px 9px;
+            font-weight: 500;
+            font-size: 1.125rem;
             background-color: #fff;
+            margin: 6px;
+            margin-left: auto;
+            margin-right: auto;
         }
         details summary::marker {
           display: none;
@@ -79,13 +86,17 @@ export function CountrySelect(onChange) {
           transition: transform 0.25s;
         }
 
+        summary {
+            margin: -6px -9px;
+            padding: 6px 9px;
+        }
+
         details[open] summary {
           margin-bottom: 1rem;
-          border-bottom: 1px solid #999999;
-          border-right: 1px solid #999999;
-          border-left: 1px solid #999999;
+          border-bottom: 1px solid var(--border-color);
           border-radius: 0 0 5px 5px;
-          padding-bottom: 6px;
+          padding: 6px;
+          margin-top: -6px;
           margin-left: -10.222px;
           margin-right: -10.222px;
         }
@@ -95,15 +106,26 @@ export function CountrySelect(onChange) {
           transform: rotate(180deg);
         }
 
+        .radioCont > details > fieldset legend {
+          margin-top: -16px !important;
+        }
+        .radioCont > details {
+          z-index: 6;
+        }
+
         fieldset {
+          position: relative;
           border: 0;
           padding: 0;
-          width: 268.222px;
+          font-weight: 400;
+          font-size: 1.125rem;
+          width: calc(100% + 18px);
           margin: -9px;
           margin-bottom: -2px;
-          margin-top: -16.222px;
+          margin-top: -16px;
           max-height: 250px;
           overflow-y: scroll;
+          background-color: white;
         }
 
         fieldset legend {
@@ -132,14 +154,19 @@ export function CountrySelect(onChange) {
         }
 
         ul li:hover {
-          background: #eee;
+          background-color: var(--bt-teal-15) !important;
+        }
+
+        li:has(input[type=checkbox]:checked) {
+          background-color: var(--bt-teal-t10);
         }
 
         ul li label {
           float: left;
           padding-left: 24px;
-          display: inline-block;
-          width: 70%;
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          width: 100%;
         }
 
         .pointer {
@@ -150,32 +177,55 @@ export function CountrySelect(onChange) {
                 pointer-events: none;
             }
         }
-    `;
-    const [selectedCountry, setSelectedCountry] = useState('US'); // Set default value to 'US'
 
+        input[type='radio'] {
+            justify-self: center;
+            align-self: center;
+            height: 60%;
+            width: 60%;
+        }
+
+        .radioCont {
+            width: 100%;
+            height: 0px;
+            padding: 12px;
+            z-index: 5;
+        }
+    `;
     function handleCountryChange(value) {
-        setSelectedCountry(value);
-        onChange.onChange(value);
+        proposalConfiguration.countryCode = value;
+        onChange.onChange();
+    }
+
+    function select(value, name) {
+        const detail = document.getElementsByTagName('details')[0];
+        const summary = document.getElementsByTagName('summary')[0];
+        const radio = document.getElementById(value);
+        radio.checked = true;
+        summary.textContent = name + '  ';
+        detail.open = false;
+        handleCountryChange(value);
     }
 
     return (
         &lt;div className="radioCont">
             &lt;style>{css}&lt;/style>
-            &lt;details className="pointer">
-                &lt;summary>Local Setting.&lt;/summary>
+            &lt;details className="pointer noHighlight">
+                &lt;summary>Change location  &lt;/summary>
                 &lt;fieldset>
                     &lt;ul>
                         {countryOptions.map(option => (
-                            &lt;li key={option.value}>
+                            &lt;li key={option.value} onClick={() => select(option.value, option.name)} className="pointer">
                                 &lt;label>
+                                    &lt;label className="unclickable">{option.name}&lt;/label>
                                     &lt;input
+                                        id={option.value}
                                         type="radio"
                                         name="country"
                                         value={option.value}
                                         onChange={() => handleCountryChange(option.value)}
-                                        checked={option.value === selectedCountry}
+                                        checked={option.value === proposalConfiguration.countryCode}
                                     />
-                                    {option.name}
                                 &lt;/label>
                             &lt;/li>
                         ))}
@@ -184,15 +234,6 @@ export function CountrySelect(onChange) {
             &lt;/details>
         &lt;/div>
     );
-}
-
-/**
- * Gets the currently selected country from the CountrySelect component.
- *
- * @returns {string} The value of the currently selected country.
- */
-export function selectedCountry() {
-    return document.querySelector('input[name="country"]:checked').value;
 }</code></pre>
         </article>
     </section>
@@ -203,13 +244,13 @@ export function selectedCountry() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#Templates">Templates</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getProposal">getProposal</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 09 2024 21:49:52 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

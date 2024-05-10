@@ -26,79 +26,219 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { MultiSelect, checkSelected } from './multiSelect';
-import { CountrySelect, selectedCountry } from './countrySelect';
-import { useState } from 'react';
-
-/**
- * An asynchronous function that sends a POST request to configure a proposal.
- * @param {Array} columnsToShow - An array of columns to be shown in the proposal.
- * @param {string} templateID - The ID of the template to be used for the proposal.
- * @param {string} countryCode - The country code for the proposal.
- * @returns {Promise&lt;string>} A promise that resolves to the HTML string of the proposal.
+            <pre class="prettyprint source linenums"><code>/**
+ * @file This file contains the Templates component which is responsible for handling the templates page.
  */
-export async function getProposal(columnsToShow, templateID, countryCode) {
-    var proposalConfiguration = { columnsToShow, templateID, countryCode };
-    console.log(JSON.stringify(proposalConfiguration));
-    const result = await fetch('http://localhost:5080/ConfigureProposal', {
-        method: 'POST',
-        body: JSON.stringify(proposalConfiguration),
-        headers: {
-            'accept': 'text/plain',
-            'Content-type': 'application/json'
-        }
-    });
-    const proposalHtml = await result.text();
-    return proposalHtml;
-}
+import { checkSelected, initializeColumnsToShow, getColumnElements, getColumnWidths } from '../Functions/multiSelectHelper';
+import { useState, useEffect } from 'react';
+import { proposalConfiguration, proposal } from '../DataModels/ProposalConfiguration';
+import getProposal from '../Functions/getProposal'
+import { useNavigate, useLocation} from 'react-router-dom';
+import parse from 'html-react-parser';
+import ColumnCustomization from './CustomizationTabs/columnCustomization';
+import GeneralCustomization from './CustomizationTabs/generalCustomization';
 
 /**
  * A React component that renders a form for configuring a proposal.
- * @param {Object} data - The initial data for the proposal.
  * @returns {JSX.Element} A JSX element representing the form and the proposal.
  */
-export function Templates(data) {
+export default function Templates() {
+    /**
+     * Reset the scroller to the top of the window. 
+     */
+    window.scrollTo(0, 0);
 
+    /** The location to get the proposal information back from the export Data
+     *   @type {object}
+    */
+    const { state } = useLocation();    
+
+    /**
+     * State variable to manage the visibility of the starter template.
+     * @type {Array&lt;boolean|function>} 
+     */
     const [starterTemplate, setStarterTemplate] = useState(true);
-    const [updatedTemplate, setUpdatedTemplate] = useState(false);
-    const [columnsToShow, setColumnsToShow] = useState([]);
-    const [generatedProp, setGeneratedProp] = useState();
-    const [countryCode, setCountryCode] = useState([]);
 
+    /**
+     * State variable to manage the visibility of the column customization.
+     * @type {Array&lt;boolean|function>} 
+     */
+    const [columnCustomization, setColumnCustomization] = useState(true);
+
+    /**
+     * State variable to store the generated proposal HTML.
+     * @type {Array&lt;string|function>} 
+     */
+    const [generatedProp, setGeneratedProp] = useState();
+
+    /**
+     * Navigation function from react-router-dom to navigate between pages.
+     * @type {function}
+     */
+    const navigate = useNavigate();
+
+     /**
+     * React hook that triggers an effect when the component mounts.
+     */
+    useEffect(() => {
+        if (proposal.html == '') {
+            navigate('/');
+        }
+    }, []);
+
+    useEffect(() => {
+        proposal.columnElements = getColumnElements();
+        proposal.columnWidths = getColumnWidths();
+    }, [proposalConfiguration.columnsToShow])
+
+    /**
+     * Handles the change event for the signature checkbox and updates the proposal configuration.
+     */
     const handleChange = () => {
-        setColumnsToShow(checkSelected());
-        setCountryCode(selectedCountry());
+        if (columnCustomization) {
+            if (!proposalConfiguration.columnsToShow || proposalConfiguration.columnsToShow.length == 0) {
+                initializeColumnsToShow();
+            } else {
+                proposalConfiguration.columnsToShow = checkSelected();
+            }
+        } else {
+            const sign = document.getElementById('showSignature');
+            proposalConfiguration.showSignature = sign.checked;
+        }
+        const contactConfigs = document.querySelectorAll('input[name="contactConfig"]');
+        contactConfigs.forEach((input) => {
+            switch (input.id) {
+                case 'showJobAddress':
+                    proposalConfiguration.contactConfiguration.showJobAddress = input.checked;
+                    break;
+                case 'showContactAdress':
+                    proposalConfiguration.contactConfiguration.showContactAddress = input.checked;
+                    break;
+                case 'showOwnerContact':
+                    proposalConfiguration.contactConfiguration.showOwnerContact = input.checked;
+                    break;
+                case 'showBuilderAddress':
+                    proposalConfiguration.contactConfiguration.showBuilderAddress = input.checked;
+                    break;
+                case 'showBuilderContact':
+                    proposalConfiguration.contactConfiguration.showBuilderContact = input.checked;
+                    break;
+            }
+        });
+        handleSubmit();
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(columnsToShow, data.id);
-        getProposal(columnsToShow, data.id, countryCode).then((response) => setGeneratedProp(response));
+
+    /**
+     * Submits the proposal configuration and retrieves the generated proposal.
+     */
+    function handleSubmit() {
+        if (!proposalConfiguration.columnsToShow || proposalConfiguration.columnsToShow.length == 0) {
+            initializeColumnsToShow();
+        }
+        if (!proposalConfiguration.countryCode) {
+            proposalConfiguration.countryCode = 'US';
+        }
+        getProposal().then((response) => setGeneratedProp(response));
         if (starterTemplate) {
             setStarterTemplate(false);
-            setUpdatedTemplate(true);
         }
-    };
+        proposal.fetchBackCSS = false;
+    }
+    /**
+     * Switches between tab views.
+     * @param {number} tab - The index of the tab to switch to.
+     */
+    function switchTabs(tab) {
+        const tabs = document.getElementsByName('tab');
+        if (tab == 1) {
+            tabs[0].classList.add('tabSelected');
+            tabs[1].classList.remove('tabSelected');
+        } else {
+            tabs[1].classList.add('tabSelected');
+            tabs[0].classList.remove('tabSelected');
+        }
+    }
 
+    /**
+     * Button to generate a docunment.
+     */
+    function exportDocunment() {
+        /*console.log(proposal.html);*/
+        if (proposalConfiguration.templateID == 1) {
+            proposal.html = document.querySelector('.proposal1').innerHTML;
+            navigate('/export', { state: { content: '&lt;link rel="stylesheet" href="proposal1-styles.css">', name:'proposal1'  } });
+
+        }
+        else if (proposalConfiguration.templateID == 2) {
+            proposal.html = document.querySelector('.proposal2').innerHTML;
+            navigate('/export', { state: { content: '&lt;link rel="stylesheet" href="proposal2-styles.css">', name: 'proposal2' } });
+
+        }
+        else if (proposalConfiguration.templateID == 3) {
+            proposal.html = document.querySelector('.proposal3').innerHTML;
+            navigate('/export', { state: { content: '&lt;link rel="stylesheet" href="proposal3-styles.css">', name: 'proposal3' } });
+
+        }
+        else if (proposalConfiguration.templateID == 4) {
+            proposal.html = document.querySelector('.proposal4').innerHTML;
+            navigate('/export', { state: { content: '&lt;link rel="stylesheet" href="proposal4-styles.css">', name: 'proposal4' } });
+
+        }
+
+    }
+
+    if (state !== null) {
+        handleSubmit();
+    }
+
+  
     return (
         &lt;div>
-            &lt;h1 id="tabelLabel">Proposal Information&lt;/h1>
-            &lt;p>Please select the columns to be displayed&lt;/p>
-            &lt;div className="form">
-                &lt;form onSubmit={handleSubmit}>
-                    &lt;MultiSelect onChange={handleChange} />
-                    &lt;CountrySelect onChange={handleChange}/>
-                    &lt;button type="submit" className="submit-btn">
-                        Submit
-                    &lt;/button>
-                &lt;/form>
+            &lt;header>
+                &lt;div className="backButton noHighlight pointer" onClick={() => navigate("/")}>
+                    {proposal.fetchBackCSS &amp;&amp; parse(state.content)}
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" className="backArrow">
+                        &lt;path d="M641.13-61.912 222.477-480 641.13-898.088 730.218-809l-329 329 329 329-89.088 89.088Z" />
+                    &lt;/svg>
+                    &lt;h2 className="back">Change Template&lt;/h2>
+                    
+                &lt;/div>
+                &lt;h2 id="title">Proposal Information&lt;/h2>
+            &lt;/header>
+            &lt;div className="customCont">
+                {starterTemplate &amp;&amp;
+                    &lt;div dangerouslySetInnerHTML={{ __html: proposal.html }} className="customTemp" />
+                }
+                {!starterTemplate &amp;&amp;
+                    &lt;div dangerouslySetInnerHTML={{ __html: generatedProp }} className="customTemp" />
+                }
+                &lt;div>
+                    &lt;form onSubmit={exportDocunment}>
+                        &lt;div className="tabCont">
+                            &lt;nav onClick={() => { setColumnCustomization(true); switchTabs(1)}} className="tab tabSelected pointer noHighlight" name="tab">Table&lt;/nav>
+                            &lt;nav onClick={() => { setColumnCustomization(false); switchTabs(2) }} className="tab pointer noHighlight" name="tab">General&lt;/nav>
+                            &lt;div className="shadow">&lt;/div>&lt;div className="shadow">&lt;/div>
+                        &lt;/div>
+                        &lt;div className="form">
+                            {columnCustomization &amp;&amp;
+                                &lt;ColumnCustomization onChange={handleChange} />
+                            }
+                            {!columnCustomization &amp;&amp;
+                                &lt;GeneralCustomization onChange={handleChange} />
+                            }
+                            &lt;div className="submitCont">
+                               {/* &lt;button onClick={() => { window.print() }} className="submit-btn">
+                                    Print &amp; Generate PDF
+                                &lt;/button>*/}
+                                &lt;button type="submit" className="submit-btn">
+                                    Next
+                                &lt;/button>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/form>
+                &lt;/div>
             &lt;/div>
-            {starterTemplate &amp;&amp;
-                &lt;div dangerouslySetInnerHTML={{ __html: data.value }} />
-            }
-            {updatedTemplate &amp;&amp;
-                &lt;div dangerouslySetInnerHTML={{ __html: generatedProp }} />
-            }
         &lt;/div>
     );
 }
@@ -114,13 +254,13 @@ export function Templates(data) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#Templates">Templates</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getProposal">getProposal</a></li><li><a href="global.html#selectedCountry">selectedCountry</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Apr 09 2024 21:49:52 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>

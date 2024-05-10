@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/export.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/export.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { EditorContent, useEditor, ReactNodeViewRenderer, NodeViewWrapper, NodeViewContent } from '@tiptap/react';
+import { proposal } from '../DataModels/ProposalConfiguration';
+import StarterKit from '@tiptap/starter-kit';
+import { mergeAttributes, Node, Extension } from '@tiptap/core';
+import { useNavigate, useLocation } from 'react-router-dom';
+import parse from 'html-react-parser';
+import { useRef, useEffect } from "react";
+
+
+
+/**
+*Tiptap Wrapper to render the proposal into a docunment.
+*/
+const ProposalWrapper = () => {
+    return (
+        &lt;NodeViewWrapper>
+            &lt;NodeViewContent className="content" contentEditable={true}>
+                {parse(proposal.html)}
+            &lt;/NodeViewContent>
+        &lt;/NodeViewWrapper>
+
+    )
+
+}
+/**
+*Tiptap Extention for the Editor to reconize Div element of the HTML.
+*/
+const Div = Node.create({
+    name: 'div',
+
+    priority: 1000,
+
+    addOptions() {
+        return {
+            HTMLAttributes: {
+            },
+        }
+    },
+
+    group: 'block',
+
+    content: 'inline*',
+
+    parseHTML() {
+        return [
+            { tag: 'div' },
+        ]
+    },
+
+    renderHTML({ HTMLAttributes }) {
+        return ['div', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0]
+    },
+
+    addAttributes() {
+        return {
+            class: {
+                default: null,
+            }
+        }
+    },
+
+    addCommands() {
+        return {
+            setDiv: () => ({ commands }) => {
+                return commands.toggleNode('div', 'div')
+            },
+        }
+    },
+})
+
+/**
+*Tiptap Node to extend the ProposalWrapper to reconize all the Dive component in the HTML.
+*/
+const DivExt = Node.create({
+    name: 'divComponent',
+
+    group: 'block',
+
+    atom: true,
+
+    addAttributes() {
+        return {
+            html: {
+                default: null,
+            },
+        }
+    },
+
+    parseHTML() {
+        return [
+            {
+                tag: 'div-Component',
+            },
+        ]
+    },
+
+    renderHTML({ HTMLAttributes }) {
+        return ['div-Component', mergeAttributes(HTMLAttributes)]
+    },
+
+    addNodeView() {
+        return ReactNodeViewRenderer(ProposalWrapper)
+    },
+})
+
+/**
+     *Tiptap Extention to remove white spaces form the editor.
+     */
+const RemoveHardBrakes = Extension.create({
+    name: 'removeHardBrakes',
+
+    commands() {
+        return {
+            removeWhiteSpace: () => ({ tr, dispatch }) => {
+                const { $from, $to } = tr.selection;
+                tr.doc.nodesBetween($from.pos, $to.pos, (node, pos) => {
+                    if (node.isText) {
+                        const text = node.text.trim();
+                        if (text.length === 0) {
+                            tr.delete(pos, pos + node.nodeSize);
+                        } else if (text !== node.text) {
+                            tr.replaceWith(pos, pos + node.nodeSize, node.type.create(node.attrs, text));
+                        }
+                    }
+                });
+                if (dispatch) dispatch(tr);
+                return true;
+            },
+        };
+    }
+});
+
+/**
+*Function to print the Proposal in the tiptap editor.
+* @type {function}
+*/
+function printProposal() {
+    window.print()
+}
+
+
+/**
+* A React component that turn the rendered proposal into a editor.
+* @returns {JSX.Element} A JSX element representing the editor.
+*/
+const Tiptap = () => {
+    /**
+   * Navigation function from react-router-dom to navigate between pages.
+   * @type {function}
+   */
+    const navigate = useNavigate();
+    /**
+  * Location function from react-router-dom to retrive data form one page to another.
+  * @type {function}
+  */
+    const { state } = useLocation();
+
+    useEffect(() => {
+        if (proposal.html == '') {
+            navigate('/');
+        }
+    }, []);
+
+    /**
+     *Initilized the tdior with extention and the content.
+     */
+    const editor = useEditor({
+      
+        extensions: [
+            DivExt,
+            Div,
+            RemoveHardBrakes,
+            
+            StarterKit],
+        content: '&lt;div-Component>&lt;/div-Component>'
+    });
+
+    const contentRef = useRef(null);
+
+    /**
+     *Function to navigate form export docunment Page to the templete page.
+     * @type {function}
+     */
+    function navigateToTemplate() {
+        proposal.html = "\n&lt;div className=\"" + state.name + "\">" + proposal.html + "&lt;/div>";
+        proposal.fetchBackCSS = true;
+        navigate('/templates', { state: { content: '&lt;link rel="stylesheet" href="proposal1-styles.css">' } })
+    }
+
+    return (
+        &lt;div>
+            &lt;header>
+                {parse(state.content)}
+                &lt;div className="backButton noHighlight pointer" onClick={navigateToTemplate}>
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" className="backArrow">
+                        &lt;path d="M641.13-61.912 222.477-480 641.13-898.088 730.218-809l-329 329 329 329-89.088 89.088Z" />
+                    &lt;/svg>
+                    &lt;h2 className="back">Template&lt;/h2>
+                &lt;/div>
+                &lt;div id="title">
+                    &lt;button onClick={printProposal}>
+                        Print
+                    &lt;/button>
+                &lt;/div>
+            &lt;/header>
+            &lt;div style={{height: 40 + 'px'}}>&lt;/div>
+            &lt;div className={state.name}>
+                &lt;div style={{height: 20 + 'px'}}>&lt;/div>
+                &lt;EditorContent editor={editor} ref={contentRef}>&lt;/EditorContent>
+            &lt;/div>
+            
+        &lt;/div>
+
+    )
+}
+
+export default Tiptap</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

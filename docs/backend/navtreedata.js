@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "btTemplate", "index.html", [
+  [ "spring24-uno-templates", "index.html", [
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -51,8 +51,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_8_n_e_t_core_app_00_version_0av8_80_8_assembly_attributes_8cs.html",
-"classbt_template_1_1_server_1_1_proposal_complete_model_1_1_proposal.html#a2fbe19e1c3b4d9e6aa2ab2aef8cad180"
+"_address_8cs.html",
+"classbt_template_1_1_server_1_1_proposal_complete_model_1_1_option.html#a6cfcd1c236f21c69cd728776ecc0e89d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

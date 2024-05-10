@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['invoice_0',['Invoice',['../classbt_template_1_1_server_1_1_template_models_1_1_invoice.html',1,'btTemplate::Server::TemplateModels']]]
+  ['formatoptions_0',['FormatOptions',['../classbt_template_1_1_server_1_1_proposal_complete_model_1_1_format_options.html',1,'btTemplate::Server::ProposalCompleteModel']]]
 ];

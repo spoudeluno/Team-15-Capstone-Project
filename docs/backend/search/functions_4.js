@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mapcontrollers_0',['MapControllers',['../_program_8cs.html#a9e2ee3170aa6279b68eefd1651f7d96c',1,'Program.cs']]],
-  ['mapfallbacktofile_1',['MapFallbackToFile',['../_program_8cs.html#a1fef6263a8172c82cef5a4e2f7a2bb43',1,'Program.cs']]]
+  ['proposalencapsulation_0',['ProposalEncapsulation',['../classbt_template_1_1_server_1_1_controllers_1_1_proposal_encapsulation.html#a7b4bdd4cbb870a97baa5e1276b10afe2',1,'btTemplate::Server::Controllers::ProposalEncapsulation']]]
 ];

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/widthSlider.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/widthSlider.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { proposal, proposalConfiguration } from '../DataModels/ProposalConfiguration';
+import { getColumnWidths } from '../Functions/multiSelectHelper';
+import { useEffect } from 'react';
+
+/**
+ * A function that renders sliders to update the width of the columns in the Proposal table.
+ * @returns {JSX.Element} A JSX element Used to change the width of the colums in the proposal table.
+ */
+export default function WidthSlider() {
+
+    const css = `
+        :root {
+            --slider-color: var(--bt-blue-s2);
+            --slider-bg: var(--bt-lt-grey);
+            --thumb-color: var(--bt-blue-s1);
+        }
+
+        .fieldLabel {
+            text-align: left;
+            padding-left: 8px;
+            color: var(--bt-dk-grey);
+        }
+
+        .widthSliderItemCont {
+            display: grid;
+            grid-template-rows: repeat(autofit, 1fr);
+            height: clamp(150px, 100%, 40vh);
+            background-color: var(--bt-lt-grey);
+            color: var(--global-font-color);
+            border-radius: 10px;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin: auto;
+            padding-bottom: 3px;
+            border: 1px solid var(--border-color);
+        }
+
+        .columnRow {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 3fr 1fr;
+        }
+
+        .widthSliderItem {
+            width: 98%;
+            height: 95%;
+            margin: auto;
+            margin-top: 5px;
+            border-radius: 5px;
+            background-color: white;
+            display: grid;
+            grid-template-rows: 20px 20px;
+            box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+        }
+
+        .widthSliderItem:hover {
+            background-color: var(--bt-form-field-grey) !important;
+
+            .slider {
+                background-color: var(--bt-md-grey) !important;
+            }
+        }
+
+        .slider {
+            appearance: none;
+            width: 85%;
+            cursor: pointer;
+            height: 30%;
+            align-self: center;
+            justify-self: center;
+            border-radius: 5px;
+            background-color: var(--bt-lt-grey);
+        }
+
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--thumb-color);
+        }
+
+        .slider::-moz-range-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--thumb-color);
+        }
+
+        .slider:hover {
+            --thumb-color: var(--bt-blue-t1);
+        }
+
+        .widthSlider {
+            width: 90%;
+            height: 60%;
+            margin: 12px;
+        }
+
+        .widthSlider > ::-webkit-scrollbar {
+            width: 8px !important;
+        }
+    `;
+    /*
+    1. I have an object containing the table heading elements
+    2. I need to set their individual widths
+    Approach: Slider sets the width values of the elements.
+    May need a helper method that sets the value from a given value by the slider.
+    */
+
+    useEffect(() => {
+        showSliders();
+        setInputsValue();
+    }, []);
+
+    useEffect(() => {
+        proposal.columnWidths = getColumnWidths();
+        setWidths();
+        showSliders();
+    }, [proposalConfiguration.columnsToShow]);
+
+    /**
+     * A function to format the lable.
+     * @param {string} value - content the Lable for the column.
+     */
+    function formatLabel(text) {
+        const result = text.replace(/([A-Z])/g, " $1");
+        return result.charAt(0).toUpperCase() + result.slice(1);
+    }
+    /**
+     * A function to set value of the colums.
+     * @param {string} value -.
+     */
+    function setValue(column) {
+        const value = document.getElementById("value" + column);
+        const range = document.getElementById("range" + column);
+        value.textContent = range.value + "px";
+        for (let i in proposal.columnElements) {
+            if (proposal.columnElements[i].id == column) {
+                proposal.columnWidths[i] = range.value + 'px';
+            }
+        }
+        setWidths();
+        displaySlider(range);
+    }
+
+    /**
+     * A function to Check the width of the function so it does not go out of docunment.
+     */
+    function checkWidths() {
+        let noMinMax = true;
+        if (proposal.columnWidths != 0) {
+            proposal.columnWidths.forEach((width) => {
+                if (width.substring(0, 1) == 'm') {
+                    noMinMax = false;
+                }
+            });
+            if (noMinMax) {
+                let width = `minmax(${proposal.columnWidths[proposal.columnWidths.length - 1]}, 1fr) `
+                proposal.columnWidths[proposal.columnWidths.length - 1] = width;
+            }
+        }
+    }
+    /**
+     * A function to set width of the column.
+     */
+    function setWidths() {
+        const root = document.querySelector(':root');
+        let widthString = '';
+        checkWidths();
+        proposal.columnWidths.forEach((width) => {
+            widthString += width + " ";
+        })
+        root.style.setProperty('--column-widths', widthString);
+    }
+    /**
+     * A function to format the table.
+     * @param {object} value - contains the max Width for th column and the Current value of the value slider.
+     */
+    function displaySlider(slider) {
+        let percent = ((slider.value) / (slider.max)) * 100;
+        slider.style.background = `linear-gradient(to right, var(--slider-color) ${percent}%, var(--slider-bg) ${percent}%`;
+    }
+    /**
+     * A function to show sliders to chage the width of the columns.
+     */
+    function showSliders() {
+        const sliders = document.querySelectorAll('input[type="range"]');
+        sliders.forEach((slider) => {
+            displaySlider(slider);
+        })
+    }
+    /**
+     * A function to set value for all the columns.
+     */
+    function setInputsValue() {
+        const inputs = document.querySelectorAll('input[type="range"]');
+        let widths = new Array();
+        proposal.columnWidths.forEach((width) => {
+            if (width.substring(0, 1) == 'm') {
+                widths.push(100)
+            } else {
+                widths.push(width.substring(0, width.length - 2));
+            }
+        });
+        if (proposal.columnWidths.length != 0) {
+            inputs.forEach((input, i) => {
+                input.value = widths[i];
+                setValue(input.id.substring(5,input.id.length));
+            });
+        }
+    }
+
+    return (
+        &lt;div className="widthSlider">
+            &lt;style>{css}&lt;/style>
+            &lt;h4 className="fieldLabel">Adjust column widths&lt;/h4>
+            &lt;ul className="widthSliderItemCont">
+                {proposalConfiguration.columnsToShow.map(column => (
+                    &lt;li key={column} className="widthSliderItem pointer">
+                        &lt;div className="columnRow">
+                            &lt;label>{formatLabel(column)} &lt;/label>
+                            &lt;div className="value" id={"value" + column}>100px&lt;/div>
+                        &lt;/div>
+                        &lt;input
+                            type="range"
+                            className="slider"
+                            id={"range" + column}
+                            min="0" max="500"
+                            defaultValue="100"
+                            onChange={() => setValue(column)}
+                        />
+                    &lt;/li>
+                ))}
+            &lt;/ul>
+        &lt;/div>
+    );
+
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ProposalHTML.html">ProposalHTML</a></li><li><a href="module.html#.exports">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CountrySelect">CountrySelect</a></li><li><a href="global.html#MultiSelect">MultiSelect</a></li><li><a href="global.html#ProposalWrapper">ProposalWrapper</a></li><li><a href="global.html#Switch">Switch</a></li><li><a href="global.html#Tiptap">Tiptap</a></li><li><a href="global.html#checkSelected">checkSelected</a></li><li><a href="global.html#getColumnElements">getColumnElements</a></li><li><a href="global.html#getColumnWidths">getColumnWidths</a></li><li><a href="global.html#initializeCheckboxes">initializeCheckboxes</a></li><li><a href="global.html#initializeColumnsToShow">initializeColumnsToShow</a></li><li><a href="global.html#printProposal">printProposal</a></li><li><a href="global.html#proposal">proposal</a></li><li><a href="global.html#proposalConfiguration">proposalConfiguration</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 09 2024 18:57:20 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
